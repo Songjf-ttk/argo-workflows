@@ -42,7 +42,6 @@ sdks/python/client/dist/*
 /cmd/argoexec/commands/test.txt
 
 # Do not commit rendered installation manifests since they are misleading to users.
-manifests/install.yaml
 manifests/namespace-install.yaml
 /logs
 node_modules 

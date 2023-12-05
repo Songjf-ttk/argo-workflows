@@ -22,7 +22,7 @@ spec:
             capabilities:
               drop:
                 - ALL
-          args: [ server ]
+          args: [ server, "--auth-mode=server", "--secure=false" ]
           env: []
           ports:
             - name: web
@@ -30,7 +30,7 @@ spec:
           readinessProbe:
             httpGet:
               port: 2746
-              scheme: HTTPS
+              scheme: HTTP
               path: /
             initialDelaySeconds: 10
             periodSeconds: 20
