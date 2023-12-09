@@ -1269,6 +1269,7 @@ spec:
         - server
         - --auth-mode=server
         - --secure=false
+        - --x-frame-options=SAMEORIGIN
         env: []
         image: quay.io/argoproj/argocli:latest
         name: argo-server

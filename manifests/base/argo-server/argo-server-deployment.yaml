@@ -22,7 +22,7 @@ spec:
             capabilities:
               drop:
                 - ALL
-          args: [ server, "--auth-mode=server", "--secure=false" ]
+          args: [ server, "--auth-mode=server", "--secure=false", "--x-frame-options=SAMEORIGIN" ]
           env: []
           ports:
             - name: web
