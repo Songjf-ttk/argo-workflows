@@ -89,70 +89,15 @@ export function AppRouter({popupManager, history, notificationsManager}: {popupM
                         navBarStyle={{backgroundColor: navBarBackgroundColor}}
                         navItems={[
                             {
-                                title: 'Workflows',
+                                title: '工作流',
                                 path: workflowsUrl + namespaceSuffix,
                                 iconClassName: 'fa fa-stream'
                             },
                             {
-                                title: 'Workflow Templates',
+                                title: '工作流模板',
                                 path: workflowTemplatesUrl + namespaceSuffix,
                                 iconClassName: 'fa fa-window-maximize'
                             },
-                            {
-                                title: 'Cluster Workflow Templates',
-                                path: clusterWorkflowTemplatesUrl,
-                                iconClassName: 'fa fa-window-restore'
-                            },
-                            {
-                                title: 'Cron Workflows',
-                                path: cronWorkflowsUrl + namespaceSuffix,
-                                iconClassName: 'fa fa-clock'
-                            },
-                            {
-                                title: 'Event Flow',
-                                path: eventFlowUrl + namespaceSuffix,
-                                iconClassName: 'fa fa-broadcast-tower'
-                            },
-                            {
-                                title: 'Event Sources',
-                                path: eventSourceUrl + namespaceSuffix,
-                                iconClassName: 'fas fa-bolt'
-                            },
-                            {
-                                title: 'Sensors',
-                                path: sensorUrl + namespaceSuffix,
-                                iconClassName: 'fa fa-satellite-dish'
-                            },
-                            {
-                                title: 'Workflow Event Bindings',
-                                path: workflowsEventBindingsUrl + namespaceSuffix,
-                                iconClassName: 'fa fa-link'
-                            },
-                            {
-                                title: 'Reports',
-                                path: reportsUrl + namespaceSuffix,
-                                iconClassName: 'fa fa-chart-bar'
-                            },
-                            {
-                                title: 'User',
-                                path: userInfoUrl,
-                                iconClassName: 'fa fa-user-alt'
-                            },
-                            {
-                                title: 'API Docs',
-                                path: apiDocsUrl,
-                                iconClassName: 'fa fa-code'
-                            },
-                            {
-                                title: 'Plugins',
-                                path: pluginsUrl,
-                                iconClassName: 'fa fa-puzzle-piece'
-                            },
-                            {
-                                title: 'Help',
-                                path: helpUrl,
-                                iconClassName: 'fa fa-question-circle'
-                            }
                         ]}
                         version={() => <>{version ? version.version : 'unknown'}</>}>
                         <Notifications notifications={notificationsManager.notifications} />
