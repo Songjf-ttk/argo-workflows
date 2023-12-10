@@ -125,7 +125,7 @@ export function AppRouter({popupManager, history, notificationsManager}: {popupM
                             </Switch>
                         </ErrorBoundary>
                         <ChatButton />
-                        {version && modals && <ModalSwitch version={version.version} modals={modals} />}
+                        {/* {version && modals && <ModalSwitch version={version.version} modals={modals} />} */}
                     </Layout>
                 </Switch>
             </Router>

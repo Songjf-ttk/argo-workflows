@@ -2,7 +2,6 @@ import * as React from 'react';
 
 export const ExampleManifests = () => (
     <>
-        You can find manifests <a href='https://github.com/argoproj/argo-workflows/tree/master/examples'>in the examples</a> or templates in{' '}
-        <a href='https://argoproj-labs.github.io/argo-workflows-catalog/'>Workflow Template Catalog</a>
+        你可以在这里找到<a href='https://github.com/kubeTasker/kubeTasker/tree/main'>示例manifest</a> 
     </>
 );

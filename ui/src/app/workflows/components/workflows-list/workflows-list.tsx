@@ -219,8 +219,8 @@ export function WorkflowsList({match, location, history}: RouteComponentProps<an
                     {!workflows ? (
                         <Loading />
                     ) : filteredWorkflows.length === 0 ? (
-                        <ZeroState title='No workflows'>
-                            <p>To create a new workflow, use the button above.</p>
+                        <ZeroState title='没有工作流'>
+                            <p>这里没有工作流，点击上面的按钮创建一个工作流</p>
                             <p>
                                 <ExampleManifests />.
                             </p>

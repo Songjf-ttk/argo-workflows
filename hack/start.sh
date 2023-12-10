@@ -15,3 +15,4 @@ kubectl patch deployment \
   "--secure=false"
 ]}]'
 kubectl -n argo port-forward deployment/argo-server 2746:2746
+make argocli-image
