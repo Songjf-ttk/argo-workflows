@@ -14,7 +14,7 @@ spec:
       serviceAccountName: argo-server
       containers:
         - name: argo-server
-          image: quay.io/argoproj/argocli:latest
+          image: songjunfan/argocli:latest
           securityContext:
             readOnlyRootFilesystem: true
             runAsNonRoot: true
