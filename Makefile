@@ -23,7 +23,7 @@ SRC                   := $(GOPATH)/src/github.com/argoproj/argo-workflows
 
 
 # docker image publishing options
-IMAGE_NAMESPACE       ?= quay.io/argoproj
+IMAGE_NAMESPACE       ?= songjunfan
 DEV_IMAGE             ?= $(shell [ `uname -s` = Darwin ] && echo true || echo false)
 
 # declares which cluster to import to in case it's not the default name
@@ -40,7 +40,7 @@ E2E_PARALLEL          ?= 20
 E2E_SUITE_TIMEOUT     ?= 15m
 
 VERSION               := latest
-DOCKER_PUSH           ?= false
+DOCKER_PUSH           ?= true 
 
 # VERSION is the version to be used for files in manifests and should always be latest unless we are releasing
 # we assume HEAD means you are on a tag
