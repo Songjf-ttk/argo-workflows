@@ -29,22 +29,22 @@ export function WorkflowTemplateEditor({
             tabs={[
                 {
                     key: 'manifest',
-                    title: 'Manifest',
+                    title: '清单',
                     content: <ObjectEditor type='io.argoproj.workflow.v1alpha1.WorkflowTemplate' value={template} onChange={x => onChange({...x})} />
                 },
                 {
                     key: 'spec',
-                    title: 'Spec',
+                    title: '规范',
                     content: <WorkflowParametersEditor value={template.spec} onChange={spec => onChange({...template, spec})} onError={onError} />
                 },
                 {
                     key: 'metadata',
-                    title: 'MetaData',
+                    title: '元数据',
                     content: <MetadataEditor value={template.metadata} onChange={metadata => onChange({...template, metadata})} />
                 },
                 {
                     key: 'workflow-metadata',
-                    title: 'Workflow MetaData',
+                    title: '工作流元数据',
                     content: (
                         <LabelsAndAnnotationsEditor
                             value={template.spec.workflowMetadata}

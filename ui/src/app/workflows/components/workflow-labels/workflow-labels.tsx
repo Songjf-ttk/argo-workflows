@@ -29,7 +29,7 @@ export function WorkflowLabels(props: WorkflowLabelsProps) {
             ))
         );
     } else {
-        labels.push(<div key={`${w.metadata.uid}-none`}> No labels </div>);
+        labels.push(<div key={`${w.metadata.uid}-none`}> 没有标签 </div>);
     }
 
     return <div className='wf-row-labels'>{labels}</div>;

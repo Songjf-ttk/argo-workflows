@@ -1,4 +1,4 @@
-minikube start
+minikube start --force
 make manifests/install.yaml
 kubectl create namespace argo
 kubectl apply -n argo -f manifests/install.yaml

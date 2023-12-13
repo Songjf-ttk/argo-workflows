@@ -36,7 +36,7 @@ export function WorkflowsToolbar(props: WorkflowsToolbarProps) {
                 iconClassName: action.iconClassName,
                 isDisabled: props.disabledActions[actionName],
                 action: async () => {
-                    const confirmed = await popup.confirm('Confirm', `Are you sure you want to ${action.title.toLowerCase()} all selected workflows?`);
+                    const confirmed = await popup.confirm('Confirm', `你确定想要 ${action.title.toLowerCase()} 所有已经被选择的工作流?`);
                     if (!confirmed) {
                         return;
                     }
@@ -46,7 +46,7 @@ export function WorkflowsToolbar(props: WorkflowsToolbarProps) {
                         // check if there are archived workflows to delete
                         for (const entry of props.selectedWorkflows) {
                             if (isArchivedWorkflow(entry[1])) {
-                                deleteArchived = await popup.confirm('Confirm', 'Do you also want to delete them from the Archived Workflows database?');
+                                deleteArchived = await popup.confirm('Confirm', '是否还想从“存档工作流”数据库中删除它们？');
                                 break;
                             }
                         }
@@ -56,7 +56,7 @@ export function WorkflowsToolbar(props: WorkflowsToolbarProps) {
 
                     props.clearSelection();
                     notifications.show({
-                        content: `Performed '${action.title}' on selected workflows.`,
+                        content: `对所有工作流执行 '${action.title}.' `,
                         type: NotificationType.Success
                     });
                     props.loadWorkflows();
@@ -75,7 +75,7 @@ export function WorkflowsToolbar(props: WorkflowsToolbarProps) {
                     promises.push(
                         services.workflows.delete(wf.metadata.name, wf.metadata.namespace).catch(reason =>
                             notifications.show({
-                                content: `Unable to delete workflow ${wf.metadata.name} in the cluster: ${reason.toString()}`,
+                                content: `不能在集群中删除工作流 ${wf.metadata.name}: ${reason.toString()}`,
                                 type: NotificationType.Error
                             })
                         )
@@ -85,7 +85,7 @@ export function WorkflowsToolbar(props: WorkflowsToolbarProps) {
                     promises.push(
                         services.workflows.deleteArchived(wf.metadata.uid, wf.metadata.namespace).catch(reason =>
                             notifications.show({
-                                content: `Unable to delete workflow ${wf.metadata.name} in database: ${reason.toString()}`,
+                                content: `不能在数据库中删除工作流 ${wf.metadata.name}: ${reason.toString()}`,
                                 type: NotificationType.Error
                             })
                         )
@@ -95,7 +95,7 @@ export function WorkflowsToolbar(props: WorkflowsToolbarProps) {
                 promises.push(
                     action(wf).catch(reason => {
                         notifications.show({
-                            content: `Unable to ${title} workflow: ${reason.content.toString()}`,
+                            content: `不能 ${title} 工作流: ${reason.content.toString()}`,
                             type: NotificationType.Error
                         });
                     })
@@ -109,7 +109,7 @@ export function WorkflowsToolbar(props: WorkflowsToolbarProps) {
         <div className={`workflows-toolbar ${numberSelected === 0 ? 'hidden' : ''}`}>
             <div className='workflows-toolbar__count'>
                 {numberSelected === 0 ? 'No' : numberSelected}
-                &nbsp;workflow{numberSelected === 1 ? '' : 's'} selected
+                &nbsp;工作流{numberSelected === 1 ? '' : 's'} 已选择
             </div>
             <div className='workflows-toolbar__actions'>
                 {operations.map(operation => {

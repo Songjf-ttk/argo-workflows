@@ -64,7 +64,7 @@ export function SubmitWorkflowPanel(props: Props) {
 
     return (
         <>
-            <h4>Submit Workflow</h4>
+            <h4>提交工作流</h4>
             <h5>
                 {props.namespace}/{props.name}
             </h5>

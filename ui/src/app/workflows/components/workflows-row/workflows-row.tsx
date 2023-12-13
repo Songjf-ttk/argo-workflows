@@ -74,11 +74,11 @@ export function WorkflowsRow(props: WorkflowsRowProps) {
                                 className={`workflows-row__action workflows-row__action--${hideDrawer ? 'show' : 'hide'}`}>
                                 {hideDrawer ? (
                                     <span>
-                                        SHOW <i className='fas fa-caret-down' />{' '}
+                                        展示 <i className='fas fa-caret-down' />{' '}
                                     </span>
                                 ) : (
                                     <span>
-                                        HIDE <i className='fas fa-caret-up' />
+                                        隐藏  <i className='fas fa-caret-up' />
                                     </span>
                                 )}
                             </div>
