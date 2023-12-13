@@ -209,10 +209,10 @@ export function WorkflowLogsViewer({workflow, nodeId, initialPodName, container,
 
     return (
         <div className='workflow-logs-viewer'>
-            <h3>Logs</h3>
+            <h3>日志</h3>
             {archived && (
                 <p>
-                    <i className='fa fa-exclamation-triangle' /> Logs for archived workflows may be overwritten by a more recent workflow with the same name.
+                    <i className='fa fa-exclamation-triangle' /> 存档工作流的日志可能会被具有相同名称的较新工作流覆盖。
                 </p>
             )}
             <div style={{marginBottom: 10}}>
@@ -246,7 +246,7 @@ export function WorkflowLogsViewer({workflow, nodeId, initialPodName, container,
                     )}
                 />
                 <Button onClick={popupJsonFieldSelector} icon={'exchange-alt'}>
-                    Log Fields
+                日志字段
                 </Button>
                 <span className='fa-pull-right'>
                     <div className='log-menu'>
@@ -266,7 +266,7 @@ export function WorkflowLogsViewer({workflow, nodeId, initialPodName, container,
             <ErrorNotice error={error} />
             {!loaded ? (
                 <p className='white-box'>
-                    <i className='fa fa-circle-notch fa-spin' /> Waiting for data...
+                    <i className='fa fa-circle-notch fa-spin' /> 等待数据...
                 </p>
             ) : (
                 <FullHeightLogsViewer
@@ -280,27 +280,27 @@ export function WorkflowLogsViewer({workflow, nodeId, initialPodName, container,
             <p>
                 {selectedContainer === 'init' && (
                     <>
-                        <InfoIcon /> Init containers logs are useful when debugging input artifact problems.
+                        <InfoIcon /> 等待容器日志在调试输入项目问题时非常有用。
                     </>
                 )}
                 {selectedContainer === 'wait' && (
                     <>
                         {' '}
-                        <InfoIcon /> Wait containers logs are useful when debugging output artifact problems.
+                        <InfoIcon /> 等待容器日志在调试输出项目问题时非常有用。
                     </>
                 )}
                 {podName && podNamesToNodeIDs.get(podName) && (
                     <>
-                        Still waiting for data or an error? Try getting{' '}
+                        仍在等待数据或者出现了一个错误？尝试{' '}
                         <a href={services.workflows.getArtifactLogsPath(workflow, podNamesToNodeIDs.get(podName), selectedContainer, archived)}>logs from the artifacts</a>.
                     </>
                 )}
                 {execSpec(workflow).podGC && (
                     <>
-                        <WarningIcon /> Your pod GC settings will delete pods and their logs immediately on completion.
+                        <WarningIcon /> 容器 GC 设置将在完成后立即删除容器及其日志。
                     </>
                 )}{' '}
-                Logs may not appear for pods that are deleted.{' '}
+                对于已删除的容器，可能不会显示日志。{' '}
                 {podName ? (
                     <Links
                         object={{

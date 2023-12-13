@@ -18,13 +18,13 @@ export const WorkflowSummaryPanel = (props: {workflow: Workflow}) => (
     <Ticker disabled={props.workflow && props.workflow.status.phase !== NODE_PHASE.RUNNING}>
         {() => {
             const attributes: {title: string; value: any}[] = [
-                {title: 'Status', value: <Phase value={props.workflow.status.phase} />},
-                {title: 'Message', value: props.workflow.status.message},
-                {title: 'Name', value: props.workflow.metadata.name},
-                {title: 'Namespace', value: props.workflow.metadata.namespace},
-                {title: 'From', value: <WorkflowFrom namespace={props.workflow.metadata.namespace} labels={props.workflow.metadata.labels} />},
+                {title: '状态', value: <Phase value={props.workflow.status.phase} />},
+                {title: '消息', value: props.workflow.status.message},
+                {title: '名称', value: props.workflow.metadata.name},
+                {title: '命名域', value: props.workflow.metadata.namespace},
+                {title: '源', value: <WorkflowFrom namespace={props.workflow.metadata.namespace} labels={props.workflow.metadata.labels} />},
                 {
-                    title: 'Labels',
+                    title: '标签',
                     value: (
                         <Consumer>
                             {ctx => (
@@ -36,10 +36,10 @@ export const WorkflowSummaryPanel = (props: {workflow: Workflow}) => (
                         </Consumer>
                     )
                 },
-                {title: 'Started', value: <Timestamp date={props.workflow.status.startedAt} />},
-                {title: 'Finished ', value: <Timestamp date={props.workflow.status.finishedAt} />},
+                {title: '运行中', value: <Timestamp date={props.workflow.status.startedAt} />},
+                {title: '已完成 ', value: <Timestamp date={props.workflow.status.finishedAt} />},
                 {
-                    title: 'Duration',
+                    title: '持续',
                     value: (
                         <DurationPanel
                             phase={props.workflow.status.phase}
@@ -48,12 +48,12 @@ export const WorkflowSummaryPanel = (props: {workflow: Workflow}) => (
                         />
                     )
                 },
-                {title: 'Progress', value: props.workflow.status.progress || '-'}
+                {title: '进程', value: props.workflow.status.progress || '-'}
             ];
             const creator = props.workflow.metadata.labels[labels.creator];
             if (creator) {
                 attributes.push({
-                    title: 'Creator',
+                    title: '创建者',
                     value: (
                         <Consumer>
                             {ctx => (
@@ -68,13 +68,13 @@ export const WorkflowSummaryPanel = (props: {workflow: Workflow}) => (
             }
             if (props.workflow.status.resourcesDuration) {
                 attributes.push({
-                    title: 'Resources Duration',
+                    title: '资源持续',
                     value: <ResourcesDuration resourcesDuration={props.workflow.status.resourcesDuration} />
                 });
             }
             if (props.workflow.status.conditions) {
                 attributes.push({
-                    title: 'Conditions',
+                    title: '状况',
                     value: <ConditionsPanel conditions={props.workflow.status.conditions} />
                 });
             }

@@ -67,39 +67,39 @@ export function WorkflowTemplateDetails({history, location, match}: RouteCompone
 
     return (
         <Page
-            title='Workflow Template Details'
+            title='工作流模板详细信息'
             toolbar={{
                 breadcrumbs: [
-                    {title: 'Workflow Templates', path: uiUrl('workflow-templates')},
+                    {title: '工作流模板', path: uiUrl('workflow-templates')},
                     {title: namespace, path: uiUrl('workflow-templates/' + namespace)},
                     {title: name, path: uiUrl('workflow-templates/' + namespace + '/' + name)}
                 ],
                 actionMenu: {
                     items: [
                         {
-                            title: 'Submit',
+                            title: '提交',
                             iconClassName: 'fa fa-plus',
                             disabled: edited,
                             action: () => setSidePanel('submit')
                         },
                         {
-                            title: 'Update',
+                            title: '更新',
                             iconClassName: 'fa fa-save',
                             disabled: !edited,
                             action: () =>
                                 services.workflowTemplate
                                     .update(template, name, namespace)
                                     .then(setTemplate)
-                                    .then(() => notifications.show({content: 'Updated', type: NotificationType.Success}))
+                                    .then(() => notifications.show({content: '已上传', type: NotificationType.Success}))
                                     .then(() => setEdited(false))
                                     .then(() => setError(null))
                                     .catch(setError)
                         },
                         {
-                            title: 'Delete',
+                            title: '删除',
                             iconClassName: 'fa fa-trash',
                             action: () => {
-                                popup.confirm('confirm', 'Are you sure you want to delete this workflow template?').then(yes => {
+                                popup.confirm('confirm', '你确定你想删除这个工作流模板吗?').then(yes => {
                                     if (yes) {
                                         services.workflowTemplate
                                             .delete(name, namespace)
@@ -111,7 +111,7 @@ export function WorkflowTemplateDetails({history, location, match}: RouteCompone
                             }
                         },
                         {
-                            title: 'Share',
+                            title: '分享',
                             iconClassName: 'fa fa-share-alt',
                             action: () => setSidePanel('share')
                         }

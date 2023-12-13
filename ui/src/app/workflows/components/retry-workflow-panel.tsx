@@ -46,7 +46,7 @@ export function RetryWorkflowPanel(props: Props) {
 
     return (
         <>
-            <h4>Retry Workflow</h4>
+            <h4>重试工作流</h4>
             <h5>
                 {props.workflow.metadata.namespace}/{props.workflow.metadata.name}
             </h5>
@@ -55,7 +55,7 @@ export function RetryWorkflowPanel(props: Props) {
             <div className='white-box'>
                 {/* Override Parameters */}
                 <div key='override-parameters' style={{marginBottom: 25}}>
-                    <label>Override Parameters</label>
+                    <label>覆盖参数</label>
                     <div className='columns small-9'>
                         <Checkbox checked={overrideParameters} onChange={setOverrideParameters} />
                     </div>
@@ -63,13 +63,13 @@ export function RetryWorkflowPanel(props: Props) {
 
                 {overrideParameters && (
                     <div key='parameters' style={{marginBottom: 25}}>
-                        <label>Parameters</label>
+                        <label>参数</label>
                         {workflowParameters.length > 0 ? (
                             <ParametersInput parameters={workflowParameters} onChange={setWorkflowParameters} />
                         ) : (
                             <>
                                 <br />
-                                <label>No parameters</label>
+                                <label>没有参数</label>
                             </>
                         )}
                     </div>
@@ -77,7 +77,7 @@ export function RetryWorkflowPanel(props: Props) {
 
                 {/* Restart Successful */}
                 <div key='restart-successful' style={{marginBottom: 25}}>
-                    <label>Restart Successful</label>
+                    <label>重启成功</label>
                     <div className='columns small-9'>
                         <Checkbox checked={restartSuccessful} onChange={setRestartSuccessful} />
                     </div>
@@ -86,7 +86,7 @@ export function RetryWorkflowPanel(props: Props) {
                 {restartSuccessful && (
                     <div key='node-field-selector' style={{marginBottom: 25}}>
                         <label>
-                            Node Field Selector to restart nodes. <a href='https://argoproj.github.io/argo-workflows/node-field-selector/'>See document</a>.
+                        节点字段选择器以重新启动节点。
                         </label>
 
                         <div className='columns small-9'>

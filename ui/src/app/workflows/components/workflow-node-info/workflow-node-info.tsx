@@ -138,15 +138,15 @@ function WorkflowNodeSummary(props: Props) {
                         props.node.memoizationStatus
                             ? [
                                   {
-                                      left: <div> KEY </div>,
+                                      left: <div> 关键词 </div>,
                                       right: <div> {props.node.memoizationStatus.key} </div>
                                   },
                                   {
-                                      left: <div> CACHE NAME </div>,
+                                      left: <div> 缓存名称 </div>,
                                       right: <div> {props.node.memoizationStatus.cacheName} </div>
                                   },
                                   {
-                                      left: <div> HIT? </div>,
+                                      left: <div> 击中? </div>,
                                       right: <div> {props.node.memoizationStatus.hit ? 'YES' : 'NO'} </div>
                                   }
                               ]
@@ -188,22 +188,22 @@ function WorkflowNodeSummary(props: Props) {
             <div>
                 {props.node.type === 'Suspend' && props.onResume && (
                     <Button icon='play' onClick={() => props.onResume()}>
-                        RESUME
+                        恢复
                     </Button>
                 )}{' '}
                 {props.node.type !== 'Container' && props.onShowYaml && (
                     <Button icon='file-code' onClick={() => props.onShowYaml(props.node.id)}>
-                        MANIFEST
+                        清单
                     </Button>
                 )}{' '}
                 {props.node.type === 'Pod' && props.onShowContainerLogs && (
                     <Button onClick={() => showLogs()} icon='bars'>
-                        LOGS
+                        日志
                     </Button>
                 )}{' '}
                 {props.node.type === 'Pod' && props.onShowEvents && (
                     <Button icon='bell' onClick={() => props.onShowEvents()}>
-                        EVENTS
+                        事件
                     </Button>
                 )}{' '}
                 {props.node.type === 'Container' && props.onShowContainerLogs && (
@@ -217,7 +217,7 @@ function WorkflowNodeSummary(props: Props) {
                                 props.node.name.replace(/.*\./, '')
                             )
                         }>
-                        logs
+                        日志
                     </Button>
                 )}{' '}
                 {props.node.type === 'Pod' && (
@@ -244,7 +244,7 @@ function WorkflowNodeSummary(props: Props) {
 
 const WorkflowNodeInputs = (props: Props) => (
     <>
-        <h5>Inputs</h5>
+        <h5>输入</h5>
         <WorkflowNodeParameters parameters={props.node.inputs && props.node.inputs.parameters} />
         <WorkflowNodeArtifacts {...props} isInput={true} artifacts={props.node.inputs && props.node.inputs.artifacts} />
     </>
@@ -252,7 +252,7 @@ const WorkflowNodeInputs = (props: Props) => (
 
 const WorkflowNodeOutputs = (props: Props) => (
     <>
-        <h5>Outputs</h5>
+        <h5>输出</h5>
         <div className='white-box'>
             <div className='white-box__details'>
                 <div className='row'>
@@ -273,13 +273,13 @@ function WorkflowNodeParameters({parameters}: {parameters: models.Parameter[]}) 
                 {parameters && parameters.length > 0 ? (
                     <>
                         <div className='row white-box__details-row' key='title'>
-                            <p>Parameters</p>
+                            <p>字段</p>
                         </div>
                         <AttributeRows key='attrs' attributes={parameters.map(x => ({title: x.name, value: x.value}))} />
                     </>
                 ) : (
                     <div className='row'>
-                        <div className='columns small-12 text-center'>No parameters</div>
+                        <div className='columns small-12 text-center'>没有字段</div>
                     </div>
                 )}
             </div>
@@ -290,21 +290,21 @@ function WorkflowNodeParameters({parameters}: {parameters: models.Parameter[]}) 
 const WorkflowNodeResult = ({result}: {result: string}) =>
     result ? (
         <>
-            <div className='columns small-3'>Result</div>
+            <div className='columns small-3'>结果</div>
             <div className='columns small-3'>{result}</div>
         </>
     ) : (
-        <div className='columns small-6 text-center'>No result</div>
+        <div className='columns small-6 text-center'>无结果</div>
     );
 
 const WorkflowNodeExitCode = ({exitCode}: {exitCode: number}) =>
     exitCode ? (
         <>
-            <div className='columns small-3'>Exit code</div>
+            <div className='columns small-3'>退出代码</div>
             <div className='columns small-3'>{exitCode}</div>
         </>
     ) : (
-        <div className='columns 6 text-center'>No exit code</div>
+        <div className='columns 6 text-center'>没有退出代码</div>
     );
 
 function hasEnv(container: models.kubernetes.Container | models.UserContainer | models.Script): container is models.kubernetes.Container | models.UserContainer {
@@ -371,7 +371,7 @@ function WorkflowNodeContainer(props: {
             <div className='white-box__details'>{<AttributeRows attributes={attributes} />}</div>
             <div>
                 <Button outline={true} icon='bars' onClick={() => props.onShowContainerLogs && props.onShowContainerLogs(props.nodeId, container.name)}>
-                    LOGS
+                    日志
                 </Button>
             </div>
         </div>
@@ -386,7 +386,7 @@ function WorkflowNodeContainers(props: Props) {
         return (
             <div className='white-box'>
                 <div className='row'>
-                    <div className='columns small-12 text-center'>No data to display</div>
+                    <div className='columns small-12 text-center'>没有数据可以展示</div>
                 </div>
             </div>
         );
@@ -401,7 +401,7 @@ function WorkflowNodeContainers(props: Props) {
             <WorkflowNodeContainer nodeId={props.node.id} container={container} onShowContainerLogs={props.onShowContainerLogs} onShowEvents={props.onShowEvents} />
             {!selectedSidecar && (
                 <div>
-                    <p>SIDECARS:</p>
+                    <p>边车：</p>
                     {containers.map(sidecar => (
                         <div className='workflow-node-info__sidecar' key={sidecar.name} onClick={() => setSelectedSidecar(sidecar.name)}>
                             <span>{sidecar.name}</span> <i className='fa fa-angle-right' />
@@ -429,12 +429,12 @@ function WorkflowNodeArtifacts(props: {workflow: Workflow; node: NodeStatus; arc
         <div className='white-box'>
             {artifacts.length === 0 && (
                 <div className='row'>
-                    <div className='columns small-12 text-center'>No artifacts</div>
+                    <div className='columns small-12 text-center'>没有镜像</div>
                 </div>
             )}
             {artifacts.length > 0 && props.archived && (
                 <p>
-                    <i className='fa fa-exclamation-triangle' /> Artifacts for archived workflows may be overwritten by a more recent workflow with the same name.
+                    <i className='fa fa-exclamation-triangle' /> 存档工作流的项目可能会被具有相同名称的较新工作流覆盖。
                 </p>
             )}
             {artifacts.map(artifact => (

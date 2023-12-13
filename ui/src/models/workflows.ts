@@ -997,9 +997,9 @@ export interface MemoizationStatus {
     cacheName: string;
 }
 
-export type WorkflowPhase = 'Pending' | 'Running' | 'Succeeded' | 'Failed' | 'Error';
+export type WorkflowPhase = '待定' | '运行中' | '成功' | '失败' | '报错';
 
-export const WorkflowPhases: WorkflowPhase[] = ['Pending', 'Running', 'Succeeded', 'Failed', 'Error'];
+export const WorkflowPhases: WorkflowPhase[] = ['待定', '运行中', '成功', '失败', '报错'];
 
 export type NodePhase = '' | 'Pending' | 'Running' | 'Succeeded' | 'Skipped' | 'Failed' | 'Error' | 'Omitted';
 

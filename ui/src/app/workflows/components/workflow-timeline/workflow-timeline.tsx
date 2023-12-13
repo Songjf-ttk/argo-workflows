@@ -56,7 +56,7 @@ export function WorkflowTimeline(props: WorkflowTimelineProps) {
     }
 
     if (!props.workflow.status.nodes) {
-        return <p>No nodes</p>;
+        return <p>没有节点</p>;
     }
 
     const nodes = Object.keys(props.workflow.status.nodes)

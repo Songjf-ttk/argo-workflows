@@ -37,13 +37,13 @@ export function WorkflowDrawer(props: WorkflowDrawerProps) {
         <div className='workflow-drawer'>
             {!wf.status || !wf.status.message ? null : (
                 <div className='workflow-drawer__section workflow-drawer__message'>
-                    <div className='workflow-drawer__title workflow-drawer__message--label'>MESSAGE</div>
+                    <div className='workflow-drawer__title workflow-drawer__message--label'>消息</div>
                     <div className='workflow-drawer__message--content'>{wf.status.message}</div>
                 </div>
             )}
             {!wf.status || !wf.status.conditions ? null : (
                 <div className='workflow-drawer__section'>
-                    <div className='workflow-drawer__title'>CONDITIONS</div>
+                    <div className='workflow-drawer__title'>条件</div>
                     <div className='workflow-drawer__conditions'>
                         <ConditionsPanel conditions={wf.status.conditions} />
                     </div>
@@ -57,7 +57,7 @@ export function WorkflowDrawer(props: WorkflowDrawerProps) {
                                 {
                                     left: (
                                         <div className='workflow-drawer__title'>
-                                            RESOURCES DURATION&nbsp;
+                                            资源持续时间&nbsp;
                                             <a
                                                 href='https://github.com/argoproj/argo-workflows/blob/master/docs/resource-duration.md'
                                                 onClick={e => e.stopPropagation()}
@@ -86,13 +86,13 @@ export function WorkflowDrawer(props: WorkflowDrawerProps) {
                 </div>
             )}
             <div className='workflow-drawer__section'>
-                <div className='workflow-drawer__title'>FROM</div>
+                <div className='workflow-drawer__title'>来自</div>
                 <div className='workflow-drawer__workflowFrom'>
                     <WorkflowFrom namespace={wf.metadata.namespace || 'default'} labels={wf.metadata.labels || {}} />
                 </div>
             </div>
             <div className='workflow-drawer__section workflow-drawer__labels'>
-                <div className='workflow-drawer__title'>LABELS</div>
+                <div className='workflow-drawer__title'>标签</div>
                 <div className='workflow-drawer__labels--list'>
                     <WorkflowLabels
                         workflow={wf}
@@ -103,7 +103,7 @@ export function WorkflowDrawer(props: WorkflowDrawerProps) {
                 </div>
             </div>
             <div className='workflow-drawer__section workflow-drawer__labels'>
-                <div className='workflow-drawer__title'>Creator</div>
+                <div className='workflow-drawer__title'>创建者</div>
                 <div className='workflow-drawer__labels--list'>
                     <WorkflowCreatorInfo
                         workflow={wf}
