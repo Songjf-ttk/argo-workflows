@@ -38,7 +38,7 @@ export function CronWorkflowFilters({cronWorkflows, namespace, labels, states, o
         <div className='wf-filters-container'>
             <div className='row'>
                 <div className='columns small-2 xlarge-12'>
-                    <p className='wf-filters-container__title'>Namespace</p>
+                    <p className='wf-filters-container__title'>命名空间</p>
                     <NamespaceFilter
                         value={namespace}
                         onChange={ns => {
@@ -47,7 +47,7 @@ export function CronWorkflowFilters({cronWorkflows, namespace, labels, states, o
                     />
                 </div>
                 <div className='columns small-2 xlarge-12'>
-                    <p className='wf-filters-container__title'>Labels</p>
+                    <p className='wf-filters-container__title'>标签</p>
                     <TagsInput
                         placeholder=''
                         autocomplete={labelSuggestion}
@@ -58,7 +58,7 @@ export function CronWorkflowFilters({cronWorkflows, namespace, labels, states, o
                     />
                 </div>
                 <div className='columns small-3 xlarge-12'>
-                    <p className='wf-filters-container__title'>State</p>
+                    <p className='wf-filters-container__title'>状态</p>
                     <CheckboxFilter
                         selected={states}
                         onChange={selected => {

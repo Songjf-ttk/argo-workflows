@@ -6,7 +6,7 @@ import {SuccessIcon, WarningIcon} from '../../shared/components/fa-icons';
 export function ScheduleValidator({schedule}: {schedule: string}) {
     try {
         if (schedule.split(' ').length >= 6) {
-            throw new Error('cron schedules must consist of 5 values only');
+            throw new Error('cron 计划必须仅包含 5 个值');
         }
         return (
             <span>
@@ -16,7 +16,7 @@ export function ScheduleValidator({schedule}: {schedule: string}) {
     } catch (e) {
         return (
             <span>
-                <WarningIcon /> Schedule maybe invalid: {e.toString()}
+                <WarningIcon /> 时间表可能无效： {e.toString()}
             </span>
         );
     }

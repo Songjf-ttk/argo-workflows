@@ -33,14 +33,14 @@ export function CronWorkflowEditor({
                     ? [
                           {
                               key: 'status',
-                              title: 'Status',
+                              title: '状态',
                               content: <CronWorkflowStatusViewer spec={cronWorkflow.spec} status={cronWorkflow.status} />
                           }
                       ]
                     : []),
                 {
                     key: 'manifest',
-                    title: 'Manifest',
+                    title: '清单',
                     content: <ObjectEditor type='io.argoproj.workflow.v1alpha1.CronWorkflow' value={cronWorkflow} onChange={x => onChange({...x})} />
                 },
                 {
@@ -50,12 +50,12 @@ export function CronWorkflowEditor({
                 },
                 {
                     key: 'metadata',
-                    title: 'MetaData',
+                    title: '元数据',
                     content: <MetadataEditor value={cronWorkflow.metadata} onChange={metadata => onChange({...cronWorkflow, metadata})} />
                 },
                 {
                     key: 'workflow',
-                    title: 'Workflow',
+                    title: '工作流',
                     content: (
                         <WorkflowParametersEditor
                             value={cronWorkflow.spec.workflowSpec}
@@ -66,7 +66,7 @@ export function CronWorkflowEditor({
                 },
                 {
                     key: 'workflow-metadata',
-                    title: 'Workflow MetaData',
+                    title: '工作流元数据',
                     content: (
                         <LabelsAndAnnotationsEditor
                             value={cronWorkflow.spec.workflowMetadata}

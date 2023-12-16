@@ -124,7 +124,7 @@ export function WorkflowTemplateList({match, location, history}: RouteComponentP
                         <Loading />
                     ) : templates.length === 0 ? (
                         <ZeroState title='No workflow templates'>
-                            <p>You can create new templates here or using the CLI.</p>
+                            <p>你可以创建新的工作流</p>
                             <p>
                                 <ExampleManifests />. {learnMore}.
                             </p>
@@ -134,9 +134,9 @@ export function WorkflowTemplateList({match, location, history}: RouteComponentP
                             <div className='argo-table-list'>
                                 <div className='row argo-table-list__head'>
                                     <div className='columns small-1' />
-                                    <div className='columns small-5'>NAME</div>
-                                    <div className='columns small-3'>NAMESPACE</div>
-                                    <div className='columns small-3'>CREATED</div>
+                                    <div className='columns small-5'>名称</div>
+                                    <div className='columns small-3'>命名域</div>
+                                    <div className='columns small-3'>已创建的</div>
                                 </div>
                                 {templates.map(t => (
                                     <Link
@@ -155,7 +155,7 @@ export function WorkflowTemplateList({match, location, history}: RouteComponentP
                                 ))}
                             </div>
                             <Footnote>
-                                <InfoIcon /> Workflow templates are reusable templates you can create new workflows from. <ExampleManifests />. {learnMore}.
+                                <InfoIcon /> 工作流程模板是可重复使用的模板，您可以从中创建新的工作流程。 <ExampleManifests />. {learnMore}.
                             </Footnote>
                             <PaginationPanel onChange={setPagination} pagination={pagination} numRecords={null} />
                         </>

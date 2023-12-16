@@ -8,7 +8,7 @@ export const DurationPanel = (props: {phase: NodePhase; duration: number; estima
     if (props.phase === NODE_PHASE.RUNNING && props.estimatedDuration) {
         return (
             <>
-                <span title={'Estimate duration: ' + formatDuration(props.estimatedDuration)}>
+                <span title={'预计持续时间：' + formatDuration(props.estimatedDuration)}>
                     <ProgressLine progress={props.duration / props.estimatedDuration} width={32} height={8} />
                 </span>{' '}
                 {formatDuration(props.duration)}

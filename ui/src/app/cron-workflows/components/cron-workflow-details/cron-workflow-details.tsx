@@ -84,7 +84,7 @@ export function CronWorkflowDetails({match, location, history}: RouteComponentPr
     const suspendButton =
         cronWorkflow && !cronWorkflow.spec.suspend
             ? {
-                  title: 'Suspend',
+                  title: '暂停',
                   iconClassName: 'fa fa-pause',
                   action: () =>
                       services.cronWorkflows
@@ -96,7 +96,7 @@ export function CronWorkflowDetails({match, location, history}: RouteComponentPr
                   disabled: !cronWorkflow || edited
               }
             : {
-                  title: 'Resume',
+                  title: '恢复',
                   iconClassName: 'fa fa-play',
                   action: () =>
                       services.cronWorkflows
@@ -111,7 +111,7 @@ export function CronWorkflowDetails({match, location, history}: RouteComponentPr
     const getItems = () => {
         const items = [
             {
-                title: 'Submit',
+                title: '提交',
                 iconClassName: 'fa fa-plus',
                 disabled: edited,
                 action: () =>
@@ -122,7 +122,7 @@ export function CronWorkflowDetails({match, location, history}: RouteComponentPr
                         .catch(setError)
             },
             {
-                title: 'Update',
+                title: '更新',
                 iconClassName: 'fa fa-save',
                 disabled: !edited,
                 action: () => {
@@ -141,7 +141,7 @@ export function CronWorkflowDetails({match, location, history}: RouteComponentPr
                             )
                         )
                         .then(setCronWorkflow)
-                        .then(() => notifications.show({content: 'Updated', type: NotificationType.Success}))
+                        .then(() => notifications.show({content: '更新成功', type: NotificationType.Success}))
                         .then(() => setError(null))
                         .then(() => setEdited(false))
                         .catch(setError);
@@ -149,11 +149,11 @@ export function CronWorkflowDetails({match, location, history}: RouteComponentPr
             },
             suspendButton,
             {
-                title: 'Delete',
+                title: '删除',
                 iconClassName: 'fa fa-trash',
                 disabled: edited,
                 action: () => {
-                    popup.confirm('confirm', 'Are you sure you want to delete this cron workflow?').then(yes => {
+                    popup.confirm('确认', '您确定要删除此 cron 工作流吗？').then(yes => {
                         if (yes) {
                             services.cronWorkflows
                                 .delete(name, namespace)
@@ -165,7 +165,7 @@ export function CronWorkflowDetails({match, location, history}: RouteComponentPr
                 }
             },
             {
-                title: 'Share',
+                title: '分享',
                 iconClassName: 'fa fa-share-alt',
                 action: () => setSidePanel('share')
             }
@@ -195,10 +195,10 @@ export function CronWorkflowDetails({match, location, history}: RouteComponentPr
 
     return (
         <Page
-            title='Cron Workflow Details'
+            title='Cron 工作流详细信息'
             toolbar={{
                 breadcrumbs: [
-                    {title: 'Cron Workflows', path: uiUrl('cron-workflows')},
+                    {title: 'Cron 工作流', path: uiUrl('cron-workflows')},
                     {title: namespace, path: uiUrl('cron-workflows/' + namespace)},
                     {title: name, path: uiUrl('cron-workflows/' + namespace + '/' + name)}
                 ],
@@ -219,23 +219,23 @@ export function CronWorkflowDetails({match, location, history}: RouteComponentPr
                 <>
                     <ErrorNotice error={error} />
                     {!workflows ? (
-                        <ZeroState title='No completed cron workflows'>
-                            <p> You can create new cron workflows here or using the CLI. </p>
+                        <ZeroState title='没有已完成的cron工作流'>
+                            <p> 可以在这里创建新的工作流 </p>
                         </ZeroState>
                     ) : (
                         <div className='argo-table-list workflows-cron-list'>
                             <div className='row argo-table-list__head'>
                                 <div className='columns small-1 workflows-list__status' />
                                 <div className='row small-11'>
-                                    <div className='columns small-2'>NAME</div>
-                                    <div className='columns small-1'>NAMESPACE</div>
-                                    <div className='columns small-1'>STARTED</div>
-                                    <div className='columns small-1'>FINISHED</div>
-                                    <div className='columns small-1'>DURATION</div>
-                                    <div className='columns small-1'>PROGRESS</div>
-                                    <div className='columns small-2'>MESSAGE</div>
-                                    <div className='columns small-1'>DETAILS</div>
-                                    <div className='columns small-1'>ARCHIVED</div>
+                                    <div className='columns small-2'>名称</div>
+                                    <div className='columns small-1'>命名空间</div>
+                                    <div className='columns small-1'>已开始</div>
+                                    <div className='columns small-1'>已完成</div>
+                                    <div className='columns small-1'>持续时间</div>
+                                    <div className='columns small-1'>进步</div>
+                                    <div className='columns small-2'>信息</div>
+                                    <div className='columns small-1'>详细信息</div>
+                                    <div className='columns small-1'>存档</div>
                                     {(columns || []).map(col => {
                                         return (
                                             <div className='columns small-1' key={col.key}>

@@ -212,10 +212,10 @@ export function EventFlowPage({history, location, match}: RouteComponentProps<an
     const emptyGraph = graph.nodes.size === 0;
     return (
         <Page
-            title='Event Flow'
+            title='事件流程'
             toolbar={{
                 breadcrumbs: [
-                    {title: 'Event Flow', path: uiUrl('event-flow')},
+                    {title: '事件流程', path: uiUrl('event-flow')},
                     {title: namespace, path: uiUrl('event-flow/' + namespace)}
                 ],
                 actionMenu: {
@@ -223,30 +223,30 @@ export function EventFlowPage({history, location, match}: RouteComponentProps<an
                         {
                             action: () => navigation.goto(uiUrl('event-sources/' + namespace + '?sidePanel=true')),
                             iconClassName: 'fa fa-bolt',
-                            title: 'Create event source'
+                            title: '创建事件源'
                         },
                         {
                             action: () => navigation.goto(uiUrl('sensors/' + namespace + '?sidePanel=true')),
                             iconClassName: 'fa fa-satellite-dish',
-                            title: 'Create sensor'
+                            title: '创建传感器'
                         },
                         {
                             action: () => setShowFlow(!showFlow),
                             iconClassName: showFlow ? 'fa fa-toggle-on' : 'fa fa-toggle-off',
                             disabled: emptyGraph,
-                            title: 'Show event-flow'
+                            title: '显示时间流'
                         },
                         {
                             action: () => setShowWorkflows(!showWorkflows),
                             iconClassName: showWorkflows ? 'fa fa-toggle-on' : 'fa fa-toggle-off',
                             disabled: emptyGraph,
-                            title: 'Show workflows'
+                            title: '显示工作流'
                         },
                         {
                             action: () => setExpanded(!expanded),
                             iconClassName: expanded ? 'fa fa-compress' : 'fa fa-expand',
                             disabled: emptyGraph,
-                            title: 'Collapse/expand hidden nodes'
+                            title: '折叠/展开隐藏节点'
                         }
                     ]
                 },
@@ -255,9 +255,9 @@ export function EventFlowPage({history, location, match}: RouteComponentProps<an
             <ErrorNotice error={error} />
             {emptyGraph ? (
                 <ZeroState>
-                    <p>Argo Events allow you to trigger workflows, lambdas, and other actions when an event such as a webhooks, message, or a cron schedule occurs.</p>
+                    <p></p>
                     <p>
-                        <a href='https://argoproj.github.io/argo-events/'>Learn more</a>
+                        <a href='https://github.com/kubeTasker/kubeTasker'>了解更多</a>
                     </p>
                 </ZeroState>
             ) : (
@@ -287,8 +287,7 @@ export function EventFlowPage({history, location, match}: RouteComponentProps<an
                     {showFlow && (
                         <div className='argo-container'>
                             <Footnote>
-                                <InfoIcon /> Event-flow is proxy for events. It is based on the pod logs of the event sources and sensors, so should be treated only as indicative
-                                of activity.
+                                <InfoIcon />
                             </Footnote>
                         </div>
                     )}
@@ -312,12 +311,12 @@ export function EventFlowPage({history, location, match}: RouteComponentProps<an
                             onTabSelected={setTab}
                             tabs={[
                                 {
-                                    title: 'SUMMARY',
+                                    title: '总概',
                                     key: 'summary',
                                     content: <ResourceEditor kind={selected.kind} value={selected.value} />
                                 },
                                 {
-                                    title: 'LOGS',
+                                    title: '日志',
                                     key: 'logs',
                                     content: (
                                         <>
@@ -344,7 +343,7 @@ export function EventFlowPage({history, location, match}: RouteComponentProps<an
                                     )
                                 },
                                 {
-                                    title: 'EVENTS',
+                                    title: '活动',
                                     key: 'events',
                                     content: <EventsPanel kind={selected.kind} namespace={selected.namespace} name={selected.name} />
                                 }
