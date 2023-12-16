@@ -118,7 +118,6 @@ export function ArtifactPanel({
                                 </LinkButton>
                             </p>
                         )}
-                        <GiveFeedbackLink href='https://github.com/argoproj/argo-workflows/issues/7743' />
                     </div>
                 </ErrorBoundary>
             </FirstTimeUserPanel>

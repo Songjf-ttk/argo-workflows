@@ -332,7 +332,7 @@ function nullSafeTimeFilter(createdAfter: Date, finishedBefore: Date, w: Workflo
     const finishedDate: Date = new Date(finishedAt);
 
     // check for undefined date filters as well
-    // equivalent to back-end logic: https://github.com/argoproj/argo-workflows/blob/f5e31f8f36b32883087f783cb1227490bbe36bbd/pkg/apis/workflow/v1alpha1/workflow_types.go#L222
+
     if (createdAfter && finishedBefore) {
         return createdDate > createdAfter && finishedAt && finishedDate < finishedBefore;
     } else if (createdAfter && !finishedBefore) {

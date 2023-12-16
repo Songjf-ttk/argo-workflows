@@ -9,8 +9,7 @@ const LazyMonacoEditor = React.lazy(() => {
     return import(/* webpackChunkName: "react-monaco-editor" */ 'react-monaco-editor');
 });
 
-// workaround, react-monaco-editor's own default no-op seems to fail when lazy loaded, causing a crash when unmounted
-// react-monaco-editor's default no-op: https://github.com/react-monaco-editor/react-monaco-editor/blob/7e5a4938cd328bf95ebc1288967f2037c6023b5a/src/editor.tsx#L184
+// workaround, react-monaco-editor's own default no-op seems to fail when lazy loaded, causing a crash when unmounte
 const noop = () => {}; // tslint:disable-line:no-empty
 
 export const SuspenseMonacoEditor = React.forwardRef(function InnerMonacoEditor(props: MonacoEditorProps, ref: React.MutableRefObject<MonacoEditor>) {
