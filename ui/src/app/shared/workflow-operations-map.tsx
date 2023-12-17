@@ -7,7 +7,7 @@ export type OperationDisabled = {
     [action in WorkflowOperationName]: boolean;
 };
 
-export type WorkflowOperationName = 'RETRY' | 'RESUBMIT' | 'SUSPEND' | 'RESUME' | 'STOP' | 'TERMINATE' | 'DELETE';
+export type WorkflowOperationName = '重试' | '重新提交' | '暂停' | '恢复' | '停止' | '终止' | '删除';
 
 export interface WorkflowOperation {
     title: WorkflowOperationName;
@@ -24,7 +24,7 @@ export interface WorkflowOperations {
 
 export const WorkflowOperationsMap: WorkflowOperations = {
     RETRY: {
-        title: 'RETRY',
+        title: '重试',
         iconClassName: 'fa fa-undo',
         disabled: (wf: Workflow) => {
             const workflowPhase: NodePhase = wf && wf.status ? wf.status.phase : undefined;
@@ -33,37 +33,37 @@ export const WorkflowOperationsMap: WorkflowOperations = {
         action: (wf: Workflow) => services.workflows.retry(wf.metadata.name, wf.metadata.namespace, null)
     },
     RESUBMIT: {
-        title: 'RESUBMIT',
+        title: '重新提交',
         iconClassName: 'fa fa-plus-circle',
         disabled: () => false,
         action: (wf: Workflow) => services.workflows.resubmit(wf.metadata.name, wf.metadata.namespace, null)
     },
     SUSPEND: {
-        title: 'SUSPEND',
+        title: '暂停',
         iconClassName: 'fa fa-pause',
         disabled: (wf: Workflow) => !Utils.isWorkflowRunning(wf) || Utils.isWorkflowSuspended(wf),
         action: (wf: Workflow) => services.workflows.suspend(wf.metadata.name, wf.metadata.namespace)
     },
     RESUME: {
-        title: 'RESUME',
+        title: '恢复',
         iconClassName: 'fa fa-play',
         disabled: (wf: Workflow) => !Utils.isWorkflowSuspended(wf),
         action: (wf: Workflow) => services.workflows.resume(wf.metadata.name, wf.metadata.namespace, null)
     },
     STOP: {
-        title: 'STOP',
+        title: '停止',
         iconClassName: 'fa fa-stop-circle',
         disabled: (wf: Workflow) => !Utils.isWorkflowRunning(wf),
         action: (wf: Workflow) => services.workflows.stop(wf.metadata.name, wf.metadata.namespace)
     },
     TERMINATE: {
-        title: 'TERMINATE',
+        title: '终止',
         iconClassName: 'fa fa-times-circle',
         disabled: (wf: Workflow) => !Utils.isWorkflowRunning(wf),
         action: (wf: Workflow) => services.workflows.terminate(wf.metadata.name, wf.metadata.namespace)
     },
     DELETE: {
-        title: 'DELETE',
+        title: '删除',
         iconClassName: 'fa fa-trash',
         disabled: () => false,
         action: (wf: Workflow) => services.workflows.delete(wf.metadata.name, wf.metadata.namespace)

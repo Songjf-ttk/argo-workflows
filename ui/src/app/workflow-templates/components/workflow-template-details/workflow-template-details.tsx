@@ -110,11 +110,7 @@ export function WorkflowTemplateDetails({history, location, match}: RouteCompone
                                 });
                             }
                         },
-                        {
-                            title: '分享',
-                            iconClassName: 'fa fa-share-alt',
-                            action: () => setSidePanel('share')
-                        }
+
                     ]
                 }
             }}>

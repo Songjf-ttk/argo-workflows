@@ -48,14 +48,14 @@ export function ResourceEditor<T extends {metadata?: kubernetes.ObjectMeta}>(pro
                                 {props.upload && <UploadButton<T> onUpload={setValue} onError={setError} />}
                                 {props.onSubmit && (
                                     <Button icon='plus' onClick={() => submit()} key='submit'>
-                                        Submit
+                                        提交
                                     </Button>
                                 )}
                             </>
                         ) : (
                             props.onSubmit && (
                                 <Button icon='edit' onClick={() => setEditing(true)} key='edit'>
-                                    Edit
+                                    编辑
                                 </Button>
                             )
                         )}

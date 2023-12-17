@@ -26,7 +26,7 @@ import {WorkflowTemplateFilters} from '../workflow-template-filters/workflow-tem
 
 import './workflow-template-list.scss';
 
-const learnMore = <a href='https://argoproj.github.io/argo-workflows/workflow-templates/'>Learn more</a>;
+const learnMore = <a href='https://argoproj.github.io/argo-workflows/workflow-templates/'>1</a>;
 
 export function WorkflowTemplateList({match, location, history}: RouteComponentProps<any>) {
     // boiler-plate
@@ -126,7 +126,7 @@ export function WorkflowTemplateList({match, location, history}: RouteComponentP
                         <ZeroState title='No workflow templates'>
                             <p>你可以创建新的工作流</p>
                             <p>
-                                <ExampleManifests />. {learnMore}.
+                                <ExampleManifests />.
                             </p>
                         </ZeroState>
                     ) : (
@@ -155,7 +155,7 @@ export function WorkflowTemplateList({match, location, history}: RouteComponentP
                                 ))}
                             </div>
                             <Footnote>
-                                <InfoIcon /> 工作流程模板是可重复使用的模板，您可以从中创建新的工作流程。 <ExampleManifests />. {learnMore}.
+                                <InfoIcon /> 工作流程模板是可重复使用的模板，您可以从中创建新的工作流程。 <ExampleManifests />.
                             </Footnote>
                             <PaginationPanel onChange={setPagination} pagination={pagination} numRecords={null} />
                         </>

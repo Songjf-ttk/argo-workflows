@@ -65,7 +65,7 @@ function DeleteCheck(props: {isWfInDB: boolean; isWfInCluster: boolean}) {
     if (props.isWfInDB && props.isWfInCluster) {
         return (
             <>
-                <p>Are you sure you want to delete this workflow?</p>
+                <p>你确定你想删除这个工作流吗？</p>
                 <div className='workflows-list__status'>
                     <input
                         type='checkbox'
@@ -77,14 +77,14 @@ function DeleteCheck(props: {isWfInDB: boolean; isWfInCluster: boolean}) {
                         }}
                         id='delete-check'
                     />
-                    <label htmlFor='delete-check'>Delete in database</label>
+                    <label htmlFor='delete-check'>在数据库中删除</label>
                 </div>
             </>
         );
     } else {
         return (
             <>
-                <p>Are you sure you want to delete this workflow?</p>
+                <p>你确定你想删除这个工作流吗？</p>
             </>
         );
     }
@@ -193,9 +193,9 @@ export function WorkflowDetails({history, location, match}: RouteComponentProps<
                     title: workflowOperation.title.charAt(0).toUpperCase() + workflowOperation.title.slice(1),
                     iconClassName: workflowOperation.iconClassName,
                     action: () => {
-                        if (workflowOperation.title === 'DELETE') {
+                        if (workflowOperation.title === '删除') {
                             popup
-                                .confirm('Confirm', () => <DeleteCheck isWfInDB={isArchivedWorkflow(workflow)} isWfInCluster={isWorkflowInCluster(workflow)} />)
+                                .confirm('确认', () => <DeleteCheck isWfInDB={isArchivedWorkflow(workflow)} isWfInCluster={isWorkflowInCluster(workflow)} />)
                                 .then(async yes => {
                                     if (!yes) {
                                         return;
@@ -218,12 +218,12 @@ export function WorkflowDetails({history, location, match}: RouteComponentProps<
                                     //  is correctly displayed. Workflow list page needs to be more responsive.
                                     window.location.reload();
                                 });
-                        } else if (workflowOperation.title === 'RESUBMIT') {
+                        } else if (workflowOperation.title === '重新提交') {
                             setSidePanel('resubmit');
-                        } else if (workflowOperation.title === 'RETRY') {
+                        } else if (workflowOperation.title === '重试') {
                             setSidePanel('retry');
                         } else {
-                            popup.confirm('Confirm', `Are you sure you want to ${workflowOperation.title.toLowerCase()} this workflow?`).then(yes => {
+                            popup.confirm('确认', `你确定想要 ${workflowOperation.title.toLowerCase()} 这个工作流吗`).then(yes => {
                                 if (!yes) {
                                     return;
                                 }
@@ -243,13 +243,7 @@ export function WorkflowDetails({history, location, match}: RouteComponentProps<
         items.push({
             action: () => setSidePanel('logs'),
             iconClassName: 'fa fa-bars',
-            title: 'Logs'
-        });
-
-        items.push({
-            action: () => setSidePanel('share'),
-            iconClassName: 'fa fa-share-alt',
-            title: 'Share'
+            title: '日志'
         });
 
         if (links) {
@@ -276,7 +270,7 @@ export function WorkflowDetails({history, location, match}: RouteComponentProps<
             const v = labels[k];
             if (v) {
                 items.push({
-                    title: 'Previous Runs',
+                    title: '以前的运行',
                     iconClassName: 'fa fa-search',
                     action: () => navigation.goto(uiUrl(`workflows/${workflow.metadata.namespace}?label=${k}=${v}`))
                 });
@@ -291,7 +285,7 @@ export function WorkflowDetails({history, location, match}: RouteComponentProps<
             const icon: string = clusterScope ? 'fa fa-window-restore' : 'fa fa-window-maximize';
 
             const templateLink: Link = {
-                name: 'Open Workflow Template',
+                name: '打开工作流模板',
                 scope: 'workflow',
                 url
             };
@@ -308,7 +302,7 @@ export function WorkflowDetails({history, location, match}: RouteComponentProps<
 
     function renderSecurityNudge() {
         if (!execSpec(workflow).securityContext) {
-            return <SecurityNudge>This workflow does not have security context set. It maybe possible to set this to run it more securely.</SecurityNudge>;
+            return <SecurityNudge>此工作流没有设置安全上下文。也许可以将其设置为更安全地运行。</SecurityNudge>;
         }
     }
 
@@ -328,7 +322,7 @@ export function WorkflowDetails({history, location, match}: RouteComponentProps<
         }
         return (
             <CostOptimisationNudge name='workflow'>
-                You do not have {recommendations.join('/')} enabled for this workflow. Enabling these will reduce your costs.
+                你无需 {recommendations.join('/')} 为此工作流程启用。 启用这些将降低您的成本。
             </CostOptimisationNudge>
         );
     }
@@ -347,13 +341,11 @@ export function WorkflowDetails({history, location, match}: RouteComponentProps<
                                 {renderCostOptimisations()}
                                 {workflow.spec.arguments && workflow.spec.arguments.parameters && (
                                     <React.Fragment>
-                                        <h6>Parameters</h6>
+                                        <h6>参数</h6>
                                         <WorkflowParametersPanel parameters={workflow.spec.arguments.parameters} />
                                     </React.Fragment>
                                 )}
-                                <h5>Artifacts</h5>
-                                <WorkflowArtifacts workflow={workflow} archived={isArchivedWorkflow(workflow)} />
-                                <WorkflowResourcePanel workflow={workflow} />
+
                             </div>
                         </div>
                     </div>
@@ -374,14 +366,14 @@ export function WorkflowDetails({history, location, match}: RouteComponentProps<
             e => {
                 if (e.type === 'DELETED') {
                     setUid(e.object.metadata.uid);
-                    setError(new Error('Workflow gone'));
+                    setError(new Error('工作流程消失了'));
                     if (e.object.metadata.labels[archivalStatus]) {
                         e.object.metadata.labels[archivalStatus] = 'Persisted';
                     }
                     setWorkflow(e.object);
                 } else {
                     if (hasArtifactGCError(e.object.status.conditions)) {
-                        setError(new Error('Artifact garbage collection failed'));
+                        setError(new Error('工件垃圾收集失败'));
                     }
                     setWorkflow(e.object);
                 }
@@ -506,10 +498,10 @@ export function WorkflowDetails({history, location, match}: RouteComponentProps<
 
     return (
         <Page
-            title={'Workflow Details'}
+            title={'工作流程详情'}
             toolbar={{
                 breadcrumbs: [
-                    {title: 'Workflows', path: uiUrl('workflows')},
+                    {title: '工作流', path: uiUrl('workflows')},
                     {title: namespace, path: uiUrl('workflows/' + namespace)},
                     {title: name, path: uiUrl('workflows/' + namespace + '/' + name)}
                 ],
@@ -518,17 +510,17 @@ export function WorkflowDetails({history, location, match}: RouteComponentProps<
                 },
                 tools: (
                     <div className='workflow-details__topbar-buttons'>
-                        <a className={classNames({active: tab === 'summary'})} onClick={() => setTab('summary')}>
+                        <a className={classNames({active: tab === '总结'})} onClick={() => setTab('summary')}>
                             <i className='fa fa-columns' />
                             {workflow && workflow.status.conditions && hasWarningConditionBadge(workflow.status.conditions) && <span className='badge' />}
                         </a>
-                        <a className={classNames({active: tab === 'events'})} onClick={() => setTab('events')}>
+                        <a className={classNames({active: tab === '事项'})} onClick={() => setTab('events')}>
                             <i className='fa argo-icon-notification' />
                         </a>
-                        <a className={classNames({active: tab === 'timeline'})} onClick={() => setTab('timeline')}>
+                        <a className={classNames({active: tab === '时间线'})} onClick={() => setTab('timeline')}>
                             <i className='fa argo-icon-timeline' />
                         </a>
-                        <a className={classNames({active: tab === 'workflow'})} onClick={() => setTab('workflow')}>
+                        <a className={classNames({active: tab === '工作流'})} onClick={() => setTab('workflow')}>
                             <i className='fa argo-icon-workflow' />
                         </a>
                     </div>
@@ -536,14 +528,14 @@ export function WorkflowDetails({history, location, match}: RouteComponentProps<
             }}>
             <div className={classNames('workflow-details', {'workflow-details--step-node-expanded': isSidePanelExpanded})}>
                 <ErrorNotice error={error} />
-                {(tab === 'summary' && renderSummaryTab()) ||
+                {(tab === '总结' && renderSummaryTab()) ||
                     (workflow && (
                         <div className='workflow-details__graph-container-wrapper'>
                             <div className='workflow-details__graph-container' style={{minWidth: GRAPH_CONTAINER_MIN_WIDTH}}>
                                 {(tab === 'workflow' && (
                                     <WorkflowPanel workflowMetadata={workflow.metadata} workflowStatus={workflow.status} selectedNodeId={nodeId} nodeClicked={setNodeId} />
                                 )) ||
-                                    (tab === 'events' && <EventsPanel namespace={workflow.metadata.namespace} kind='Workflow' name={workflow.metadata.name} />) || (
+                                    (tab === '事项' && <EventsPanel namespace={workflow.metadata.namespace} kind='Workflow' name={workflow.metadata.name} />) || (
                                         <WorkflowTimeline workflow={workflow} selectedNodeId={nodeId} nodeClicked={node => setNodeId(node.id)} />
                                     )}
                             </div>

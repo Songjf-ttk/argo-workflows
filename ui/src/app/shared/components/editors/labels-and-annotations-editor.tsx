@@ -6,11 +6,11 @@ export const LabelsAndAnnotationsEditor = ({value, onChange}: {value: kubernetes
     return (
         <>
             <div className='white-box'>
-                <h5>Labels</h5>
+                <h5>标签</h5>
                 <KeyValueEditor keyValues={value && value.labels} onChange={labels => onChange({...value, labels})} />
             </div>
             <div className='white-box'>
-                <h5>Annotations</h5>
+                <h5>注释</h5>
                 <KeyValueEditor
                     keyValues={value && value.annotations}
                     onChange={annotations => onChange({...value, annotations})}
