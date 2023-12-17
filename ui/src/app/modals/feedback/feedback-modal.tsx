@@ -8,7 +8,7 @@ export function FeedbackModal({dismiss}: {dismiss: () => void}) {
     const [choice, setChoice] = useState(0);
     return (
         <Modal dismiss={dismiss}>
-            <h3 style={{textAlign: 'center'}}>How&apos;s it going so far?</h3>
+            <h3 style={{textAlign: 'center'}}>到目前为止&apos;进展如何？</h3>
             <div style={{textAlign: 'center'}}>
                 <BigButton icon='smile-beam' title='Great' onClick={() => setChoice(1)} />
                 <BigButton icon='frown-open' title='Not so good' href='#' onClick={() => setChoice(2)} />

@@ -108,30 +108,30 @@ function WorkflowNodeSummary(props: Props) {
     const podName = getPodName(workflow.metadata.name, node.name, templateName, node.id, version);
 
     const attributes = [
-        {title: 'NAME', value: <ClipboardText text={props.node.name} />},
+        {title: '名称', value: <ClipboardText text={props.node.name} />},
         {title: 'ID', value: <ClipboardText text={props.node.id} />},
-        {title: 'TYPE', value: props.node.type},
+        {title: '类型', value: props.node.type},
         {
-            title: 'PHASE',
+            title: '阶段',
             value: <Phase value={props.node.phase} />
         },
         ...(props.node.message
             ? [
                   {
-                      title: 'MESSAGE',
+                      title: '消息',
                       value: <span className='workflow-node-info__multi-line'>{props.node.message}</span>
                   }
               ]
             : []),
-        {title: 'START TIME', value: <DisplayWorkflowTime date={props.node.startedAt} />},
-        {title: 'END TIME', value: <DisplayWorkflowTime date={props.node.finishedAt} />},
+        {title: '开始时间', value: <DisplayWorkflowTime date={props.node.startedAt} />},
+        {title: '结束时间', value: <DisplayWorkflowTime date={props.node.finishedAt} />},
         {
-            title: 'DURATION',
+            title: '持续时间',
             value: <Ticker>{now => <DurationPanel duration={nodeDuration(props.node, now)} phase={props.node.phase} estimatedDuration={props.node.estimatedDuration} />}</Ticker>
         },
-        {title: 'PROGRESS', value: props.node.progress || '-'},
+        {title: '进步', value: props.node.progress || '-'},
         {
-            title: 'MEMOIZATION',
+            title: '记忆化',
             value: (
                 <InlineTable
                     rows={
@@ -160,22 +160,22 @@ function WorkflowNodeSummary(props: Props) {
         attributes.splice(
             2,
             0,
-            {title: 'POD NAME', value: <ClipboardText text={podName} />},
+            {title: '容器名称', value: <ClipboardText text={podName} />},
             {
-                title: 'HOST NODE NAME',
+                title: '主机节点名称',
                 value: <ClipboardText text={props.node.hostNodeName} />
             }
         );
     }
     if (props.node.type === 'Retry') {
         attributes.push({
-            title: 'FAIL HOSTS',
+            title: '主机失败',
             value: <pre className='workflow-node-info__multi-line'>{failHosts(props.node, props.workflow)}</pre>
         });
     }
     if (props.node.resourcesDuration) {
         attributes.push({
-            title: 'RESOURCES DURATION',
+            title: '资源持续时间',
             value: <ResourcesDuration resourcesDuration={props.node.resourcesDuration} />
         });
     }
@@ -316,7 +316,7 @@ function EnvVar(props: {env: models.kubernetes.EnvVar}) {
     const secret = env.valueFrom?.secretKeyRef;
     const secretValue = secret ? (
         <>
-            <Tooltip content={'The value of this environment variable has been hidden for security reasons because it comes from a kubernetes secret.'} arrow={false}>
+            <Tooltip content={'出于安全原因，该环境变量的值已被隐藏。'} arrow={false}>
                 <i className='fa fa-key' />
             </Tooltip>
             {secret.name}/{secret.key}
@@ -341,21 +341,21 @@ function WorkflowNodeContainer(props: {
     const container = {name: 'main', args: Array<string>(), source: '', ...props.container};
     const maybeQuote = (v: string) => (v.includes(' ') ? `'${v}'` : v);
     const attributes = [
-        {title: 'NAME', value: container.name || 'main'},
-        {title: 'IMAGE', value: container.image},
+        {title: '名称', value: container.name || 'main'},
+        {title: '镜像', value: container.image},
         {
-            title: 'COMMAND',
+            title: '命令',
             value: <pre className='workflow-node-info__multi-line'>{(container.command || []).map(maybeQuote).join(' ')}</pre>
         },
         container.source
-            ? {title: 'SOURCE', value: <pre className='workflow-node-info__multi-line'>{container.source}</pre>}
+            ? {title: '来源', value: <pre className='workflow-node-info__multi-line'>{container.source}</pre>}
             : {
-                  title: 'ARGS',
+                  title: '辅助',
                   value: <pre className='workflow-node-info__multi-line'>{(container.args || []).map(maybeQuote).join(' ')}</pre>
               },
         hasEnv(container)
             ? {
-                  title: 'ENV',
+                  title: '环境',
                   value: (
                       <pre className='workflow-node-info__multi-line'>
                           {(container.env || []).map(e => (
@@ -364,7 +364,7 @@ function WorkflowNodeContainer(props: {
                       </pre>
                   )
               }
-            : {title: 'ENV', value: <pre className='workflow-node-info__multi-line' />}
+            : {title: '环境', value: <pre className='workflow-node-info__multi-line' />}
     ];
     return (
         <div className='white-box'>
@@ -474,7 +474,7 @@ export const WorkflowNodeInfo = (props: Props) => (
             selectedTabKey={props.selectedTabKey}
             tabs={[
                 {
-                    title: 'SUMMARY',
+                    title: '总概',
                     key: 'summary',
                     content: (
                         <div>
@@ -486,12 +486,12 @@ export const WorkflowNodeInfo = (props: Props) => (
                 props.node.type !== 'Container'
                     ? [
                           {
-                              title: 'CONTAINERS',
+                              title: '容器',
                               key: 'containers',
                               content: <WorkflowNodeContainers {...props} />
                           },
                           {
-                              title: 'INPUTS/OUTPUTS',
+                              title: '输入/输出',
                               key: 'inputs-outputs',
                               content: (
                                   <>

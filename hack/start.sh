@@ -1,7 +1,8 @@
-minikube start --force
+minikube start --force // 1
+
 make manifests/install.yaml
-kubectl create namespace argo
-kubectl apply -n argo -f manifests/install.yaml
+kubectl create namespace argo // 2
+kubectl apply -n argo -f manifests/install.yaml // 3
 kubectl create secret -n argo generic argo-workflows-sso-id --from-literal=client-id=bb9812db6828b853cec9
 kubectl create secret -n argo generic argo-workflows-sso-secret --from-literal=client-secret=8ca568df2709c9a662bc85b2ec3e6e42cea75382
 argo server --auth-mode sso -n argo
@@ -14,5 +15,6 @@ kubectl patch deployment \
   "--auth-mode=server",
   "--secure=false"
 ]}]'
-kubectl -n argo port-forward deployment/argo-server 2746:2746
+kubectl -n argo port-forward deployment/argo-server 2746:2746 // 4
 make argocli-image
+make dist/argo

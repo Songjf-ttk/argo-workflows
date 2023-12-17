@@ -77,19 +77,19 @@ export function ClusterWorkflowTemplateDetails({history, location, match}: Route
             title='Cluster Workflow Template Details'
             toolbar={{
                 breadcrumbs: [
-                    {title: 'Cluster Workflow Templates', path: uiUrl('cluster-workflow-templates')},
+                    {title: '集群工作流模板', path: uiUrl('cluster-workflow-templates')},
                     {title: name, path: uiUrl('cluster-workflow-templates/' + name)}
                 ],
                 actionMenu: {
                     items: [
                         {
-                            title: 'Submit',
+                            title: '提交',
                             iconClassName: 'fa fa-plus',
                             disabled: edited,
                             action: () => setSidePanel(true)
                         },
                         {
-                            title: 'Update',
+                            title: '更新',
                             iconClassName: 'fa fa-save',
                             disabled: !edited,
                             action: () => {
@@ -98,7 +98,7 @@ export function ClusterWorkflowTemplateDetails({history, location, match}: Route
                                     .then(setTemplate)
                                     .then(() =>
                                         notifications.show({
-                                            content: 'Updated',
+                                            content: '已更新',
                                             type: NotificationType.Success
                                         })
                                     )
@@ -108,10 +108,10 @@ export function ClusterWorkflowTemplateDetails({history, location, match}: Route
                             }
                         },
                         {
-                            title: 'Delete',
+                            title: '删除',
                             iconClassName: 'fa fa-trash',
                             action: () => {
-                                popup.confirm('confirm', 'Are you sure you want to delete this cluster workflow template?').then(yes => {
+                                popup.confirm('确认', '你确定要删除这个集群工作流模板吗？').then(yes => {
                                     if (yes) {
                                         services.clusterWorkflowTemplate
                                             .delete(name)

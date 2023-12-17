@@ -198,7 +198,7 @@ export function GraphPanel(props: Props) {
             )}
             <div className={'graph ' + props.classNames} style={{paddingTop: 35}}>
                 {props.graph.nodes.size === 0 ? (
-                    <p>Nothing to show</p>
+                    <p>空空如也</p>
                 ) : (
                     <svg key='graph' width={width + nodeSize * 2} height={height + nodeSize * 2}>
                         <defs>

@@ -17,7 +17,7 @@ export const WorkflowParametersEditor = <T extends WorkflowSpec>(props: {value: 
     return (
         <>
             <div className='white-box'>
-                <h5>Parameters</h5>
+                <h5>参数</h5>
                 <KeyValueEditor
                     keyValues={parameterKeyValues}
                     onChange={parameters => {

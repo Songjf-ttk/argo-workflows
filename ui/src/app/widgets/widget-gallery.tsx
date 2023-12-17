@@ -3,13 +3,13 @@ import {uiUrl} from '../shared/base';
 
 export const WidgetGallery = ({namespace, name, label}: {namespace: string; name?: string; label?: string}) => (
     <div className='white-box'>
-        <h3>Widgets</h3>
+        <h3>部件</h3>
         <p>
-            These widgets can be embedded inside other applications. <a href='https://argoproj.github.io/argo-workflows/widgets'>Learn more</a>
+        这些小部件可以嵌入其他应用程序中。
         </p>
         {[
             {
-                title: 'Status Badge',
+                title: '状态徽章',
                 description: 'An embeddable status badge that automatically updates when the workflow completes.',
                 path: `widgets/workflow-status-badges/${namespace}?${name && 'name=' + name}&${label && 'label=' + label}`,
                 parameters: [
@@ -54,13 +54,11 @@ export const WidgetGallery = ({namespace, name, label}: {namespace: string; name
                 </ul>
                 <p>
                     <a href={uiUrl(path)} target='widget_preview'>
-                        Preview <i className='fas fa-external-link-alt' />
+                    预览 <i className='fas fa-external-link-alt' />
                     </a>
                 </p>
             </>
         ))}
-        <p>
-            Widgets not loading? Check for <a href='https://argoproj.github.io/argo-workflows/widgets'>solutions in the docs</a>.
-        </p>
+
     </div>
 );

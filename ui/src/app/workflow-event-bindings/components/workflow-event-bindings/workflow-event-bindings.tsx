@@ -23,11 +23,10 @@ import {ID} from './id';
 
 const introductionText = (
     <>
-        Workflow event bindings allow you to trigger workflows when a webhook event is received. For example, start a build on a Git commit, or start a machine learning pipeline
-        from a remote system.
+    工作流事件绑定允许您在收到 Webhook 事件时触发工作流。
     </>
 );
-const learnMore = <a href={'https://argoproj.github.io/argo-workflows/events/'}>Learn more</a>;
+const learnMore = <a href={'https://github.com/kubeTasker/kubeTasker'}>了解更多</a>;
 
 export function WorkflowEventBindings({match, location, history}: RouteComponentProps<any>) {
     // boiler-plate
@@ -90,10 +89,10 @@ export function WorkflowEventBindings({match, location, history}: RouteComponent
 
     return (
         <Page
-            title='Workflow Event Bindings'
+            title='工作流事件绑定'
             toolbar={{
                 breadcrumbs: [
-                    {title: 'Workflow Event Bindings', path: uiUrl('workflow-event-bindings')},
+                    {title: '工作流事件绑定', path: uiUrl('workflow-event-bindings')},
                     {title: namespace, path: uiUrl('workflow-event-bindings/' + namespace)}
                 ],
                 tools: [<NamespaceFilter key='namespace-filter' value={namespace} onChange={setNamespace} />]
@@ -105,7 +104,7 @@ export function WorkflowEventBindings({match, location, history}: RouteComponent
                 <ZeroState>
                     <p>{introductionText}</p>
                     <p>
-                        Once you&apos;ve created a workflow event binding, you can test it from the CLI using <code>curl</code>, for example:
+                        一旦你&apos;已经创建了一个工作流事件绑定，你可以测试它<code>curl</code>, 例如:
                     </p>
                     <p>
                         <code>
@@ -113,11 +112,6 @@ export function WorkflowEventBindings({match, location, history}: RouteComponent
                             &apos;&#123;&#125;&apos;
                         </code>
                     </p>
-                    <p>
-                        You&apos;ll probably find it easiest to experiment and test using the <a href={uiUrl('apidocs')}>graphical interface to the API </a> - look for
-                        &quot;EventService&quot;.
-                    </p>
-                    <p>{learnMore}</p>
                 </ZeroState>
             ) : (
                 <>

@@ -6,7 +6,7 @@ export function PaginationPanel(props: {pagination: Pagination; onChange: (pagin
     return (
         <p style={{paddingBottom: '45px'}}>
             <button disabled={!props.pagination.offset} className='argo-button argo-button--base-o' onClick={() => props.onChange({limit: props.pagination.limit})}>
-                First page
+                第一页
             </button>
             <button
                 disabled={!props.pagination.nextOffset}
@@ -17,12 +17,12 @@ export function PaginationPanel(props: {pagination: Pagination; onChange: (pagin
                         offset: props.pagination.nextOffset
                     })
                 }>
-                Next page <i className='fa fa-chevron-right' />
+                下一页 <i className='fa fa-chevron-right' />
             </button>
             {/* if pagination is used, and we're either not on the first page, or are on the first page and have more records than the page limit */}
             {props.pagination.limit > 0 && (props.pagination.offset || (!props.pagination.offset && props.numRecords >= props.pagination.limit)) ? (
                 <>
-                    <WarningIcon /> Workflows cannot be globally sorted when paginated
+                    <WarningIcon /> 分页时工作流程无法全局排序
                 </>
             ) : (
                 <span />
@@ -51,7 +51,7 @@ export function PaginationPanel(props: {pagination: Pagination; onChange: (pagin
                         </option>
                     ))}
                 </select>{' '}
-                results per page
+                每页结果
             </small>
         </p>
     );

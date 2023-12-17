@@ -147,7 +147,7 @@ export function ObjectEditor<T>({type, value, buttons, onChange}: Props<T>) {
             {onChange && (
                 <div>
                     <i className='fa fa-info-circle' />{' '}
-                    {lang === 'json' ? <>Full auto-completion enabled.</> : <>Basic completion for YAML. Switch to JSON for full auto-completion.</>}{' '}
+                    {lang === 'json' ? <>启用完全自动完成。</> : <>YAML 的基本完成。 切换到 JSON 以实现完全自动完成。</>}{' '}
                 </div>
             )}
         </>

@@ -48,7 +48,7 @@ export const ErrorNotice = (props: {style?: CSSProperties; error: Error & {respo
             {reload && (
                 <span>
                     <a onClick={() => reload()}>
-                        <i className='fa fa-redo' /> Reload
+                        <i className='fa fa-redo' />重新加载
                     </a>{' '}
                     {timeLeft}s
                 </span>
