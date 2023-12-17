@@ -13,7 +13,7 @@ export function ClipboardText({text}: {text: string}) {
         <>
             {text}
             &nbsp; &nbsp;
-            <Tooltip content={justClicked ? 'Copied!' : 'Copy to clipboard'}>
+            <Tooltip content={justClicked ? '已复制' : '复制到剪切板'}>
                 <a>
                     <i
                         className={'fa fa-clipboard'}

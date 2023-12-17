@@ -57,11 +57,11 @@ export function ClusterWorkflowTemplateList({history, location}: RouteComponentP
         if (!templates) {
             return <Loading />;
         }
-        const learnMore = <a href='https://argoproj.github.io/argo-workflows/cluster-workflow-templates/'>Learn more</a>;
+        const learnMore = <a href='https://github.com/kubeTasker/kubeTasker'>了解更多</a>;
         if (templates.length === 0) {
             return (
-                <ZeroState title='No cluster workflow templates'>
-                    <p>You can create new templates here or using the CLI.</p>
+                <ZeroState title='没有集群工作流模板'>
+                    <p>可以在这里创建新的工作流模板</p>
                     <p>
                         <ExampleManifests />. {learnMore}.
                     </p>
@@ -73,8 +73,8 @@ export function ClusterWorkflowTemplateList({history, location}: RouteComponentP
                 <div className='argo-table-list'>
                     <div className='row argo-table-list__head'>
                         <div className='columns small-1' />
-                        <div className='columns small-5'>NAME</div>
-                        <div className='columns small-3'>CREATED</div>
+                        <div className='columns small-5'>名称</div>
+                        <div className='columns small-3'>已创建的</div>
                     </div>
                     {templates.map(t => (
                         <Link className='row argo-table-list__row' key={t.metadata.uid} to={uiUrl(`cluster-workflow-templates/${t.metadata.name}`)}>
@@ -89,7 +89,7 @@ export function ClusterWorkflowTemplateList({history, location}: RouteComponentP
                     ))}
                 </div>
                 <Footnote>
-                    <InfoIcon /> Cluster scoped Workflow templates are reusable templates you can create new workflows from. <ExampleManifests />. {learnMore}.
+                    <InfoIcon /> 集群范围的工作流模板是可重用的模板，你可以从中创建新的工作流。<ExampleManifests />. {learnMore}.
                 </Footnote>
             </>
         );
@@ -97,13 +97,13 @@ export function ClusterWorkflowTemplateList({history, location}: RouteComponentP
 
     return (
         <Page
-            title='Cluster Workflow Templates'
+            title='集群工作流模板'
             toolbar={{
-                breadcrumbs: [{title: 'Cluster Workflow Templates', path: uiUrl('cluster-workflow-templates')}],
+                breadcrumbs: [{title: '集群工作流模板', path: uiUrl('cluster-workflow-templates')}],
                 actionMenu: {
                     items: [
                         {
-                            title: 'Create New Cluster Workflow Template',
+                            title: '创建新的集群工作流模板',
                             iconClassName: 'fa fa-plus',
                             action: () => setSidePanel('new')
                         }

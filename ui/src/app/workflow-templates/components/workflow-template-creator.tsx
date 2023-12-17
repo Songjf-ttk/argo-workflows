@@ -25,7 +25,7 @@ export function WorkflowTemplateCreator({namespace, onCreate}: {namespace: strin
                             .then(onCreate)
                             .catch(setError);
                     }}>
-                    Create
+                    创建
                 </Button>
             </div>
             <ErrorNotice error={error} />

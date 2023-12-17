@@ -24,7 +24,7 @@ import {PrettySchedule} from '../pretty-schedule';
 
 import './cron-workflow-list.scss';
 
-const learnMore = <a href='https://argoproj.github.io/argo-workflows/cron-workflows/'>Learn more</a>;
+const learnMore = <a href='https://github.com/kubeTasker/kubeTasker'>了解更多</a>;
 
 export function CronWorkflowList({match, location, history}: RouteComponentProps<any>) {
     const queryParams = new URLSearchParams(location.search);
@@ -83,16 +83,16 @@ export function CronWorkflowList({match, location, history}: RouteComponentProps
 
     return (
         <Page
-            title='Cron Workflows'
+            title='Cron工作流'
             toolbar={{
                 breadcrumbs: [
-                    {title: 'Cron Workflows', path: uiUrl('cron-workflows')},
+                    {title: 'Cron工作流', path: uiUrl('cron-workflows')},
                     {title: namespace, path: uiUrl('cron-workflows/' + namespace)}
                 ],
                 actionMenu: {
                     items: [
                         {
-                            title: 'Create New Cron Workflow',
+                            title: '创建新的Cron工作流',
                             iconClassName: 'fa fa-plus',
                             action: () => setSidePanel(true)
                         }
@@ -120,8 +120,8 @@ export function CronWorkflowList({match, location, history}: RouteComponentProps
                     {!cronWorkflows ? (
                         <Loading />
                     ) : cronWorkflows.length === 0 ? (
-                        <ZeroState title='No cron workflows'>
-                            <p>You can create new cron workflows here or using the CLI.</p>
+                        <ZeroState title='没有cron工作流'>
+                            <p>可以在这里创建新的工作流</p>
                             <p>
                                 <ExampleManifests />. {learnMore}.
                             </p>
@@ -131,13 +131,13 @@ export function CronWorkflowList({match, location, history}: RouteComponentProps
                             <div className='argo-table-list'>
                                 <div className='row argo-table-list__head'>
                                     <div className='columns small-1' />
-                                    <div className='columns small-3'>NAME</div>
-                                    <div className='columns small-2'>NAMESPACE</div>
-                                    <div className='columns small-1'>TimeZone</div>
-                                    <div className='columns small-1'>SCHEDULE</div>
+                                    <div className='columns small-3'>名称</div>
+                                    <div className='columns small-2'>命名空间</div>
+                                    <div className='columns small-1'>时间区域</div>
+                                    <div className='columns small-1'>时间规划</div>
                                     <div className='columns small-2' />
-                                    <div className='columns small-1'>CREATED</div>
-                                    <div className='columns small-1'>NEXT RUN</div>
+                                    <div className='columns small-1'>已创建</div>
+                                    <div className='columns small-1'>下个运行</div>
                                 </div>
                                 {cronWorkflows.map(w => (
                                     <Link
@@ -166,7 +166,7 @@ export function CronWorkflowList({match, location, history}: RouteComponentProps
                                 ))}
                             </div>
                             <Footnote>
-                                <InfoIcon /> Cron workflows are workflows that run on a preset schedule. Next scheduled run assumes workflow-controller is in UTC.{' '}
+                                <InfoIcon />{' '}
                                 <ExampleManifests />. {learnMore}.
                             </Footnote>
                         </>

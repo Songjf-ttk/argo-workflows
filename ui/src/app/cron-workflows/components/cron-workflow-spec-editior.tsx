@@ -10,24 +10,24 @@ export function CronWorkflowSpecEditor({onChange, spec}: {spec: CronWorkflowSpec
         <div className='white-box'>
             <div className='white-box__details'>
                 <div className='row white-box__details-row'>
-                    <div className='columns small-3'>Schedule</div>
+                    <div className='columns small-3'>日程</div>
                     <div className='columns small-9'>
                         <TextInput value={spec.schedule} onChange={schedule => onChange({...spec, schedule})} />
                         <ScheduleValidator schedule={spec.schedule} />
                     </div>
                 </div>
                 <div className='row white-box__details-row'>
-                    <div className='columns small-3'>Timezone</div>
+                    <div className='columns small-3'>时间区域</div>
                     <div className='columns small-9'>
                         <TextInput value={spec.timezone} onChange={timezone => onChange({...spec, timezone})} />
                     </div>
                 </div>
                 <div className='row white-box__details-row'>
-                    <div className='columns small-3'>Concurrency Policy</div>
+                    <div className='columns small-3'>并发策略</div>
                     <div className='columns small-9' style={{lineHeight: '30px'}}>
                         <Select
-                            placeholder='Select concurrency policy'
-                            options={['Allow', 'Forbid', 'Replace']}
+                            placeholder='选择并发策略'
+                            options={['允许', '拒绝', '替换']}
                             value={spec.concurrencyPolicy}
                             onChange={x =>
                                 onChange({
@@ -39,7 +39,7 @@ export function CronWorkflowSpecEditor({onChange, spec}: {spec: CronWorkflowSpec
                     </div>
                 </div>
                 <div className='row white-box__details-row'>
-                    <div className='columns small-3'>Starting Deadline Seconds</div>
+                    <div className='columns small-3'>开始截止时间</div>
                     <div className='columns small-9'>
                         <NumberInput
                             value={spec.startingDeadlineSeconds}
@@ -53,7 +53,7 @@ export function CronWorkflowSpecEditor({onChange, spec}: {spec: CronWorkflowSpec
                     </div>
                 </div>
                 <div className='row white-box__details-row'>
-                    <div className='columns small-3'>Successful Jobs History Limit</div>
+                    <div className='columns small-3'>成功工作的历史限制</div>
                     <div className='columns small-9'>
                         <NumberInput
                             value={spec.successfulJobsHistoryLimit}
@@ -67,7 +67,7 @@ export function CronWorkflowSpecEditor({onChange, spec}: {spec: CronWorkflowSpec
                     </div>
                 </div>
                 <div className='row white-box__details-row'>
-                    <div className='columns small-3'>Failed Jobs History Limit</div>
+                    <div className='columns small-3'>失败工作的历史限制</div>
                     <div className='columns small-9'>
                         <NumberInput
                             value={spec.failedJobsHistoryLimit}
@@ -81,7 +81,7 @@ export function CronWorkflowSpecEditor({onChange, spec}: {spec: CronWorkflowSpec
                     </div>
                 </div>
                 <div className='row white-box__details-row'>
-                    <div className='columns small-3'>Suspended</div>
+                    <div className='columns small-3'>暂停</div>
                     <div className='columns small-9'>
                         <Checkbox checked={spec.suspend} onChange={suspend => onChange({...spec, suspend})} />
                     </div>

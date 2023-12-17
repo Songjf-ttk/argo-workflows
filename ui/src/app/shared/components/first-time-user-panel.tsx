@@ -17,7 +17,7 @@ export const FirstTimeUserPanel = ({id, explanation, children, style}: {id: stri
             <div className='white-box' style={{textAlign: 'center', ...style}}>
                 <p>{explanation}</p>
                 <p>
-                    <a onClick={() => setDismissed(true)}>Continue</a>
+                    <a onClick={() => setDismissed(true)}>继续</a>
                 </p>
             </div>
         );

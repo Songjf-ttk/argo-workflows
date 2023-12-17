@@ -14,17 +14,17 @@ export function CronWorkflowStatusViewer({spec, status}: {spec: CronWorkflowSpec
         <div className='white-box'>
             <div className='white-box__details'>
                 {[
-                    {title: 'Active', value: status.active ? getCronWorkflowActiveWorkflowList(status.active) : <i>No Workflows Active</i>},
+                    {title: '活跃的', value: status.active ? getCronWorkflowActiveWorkflowList(status.active) : <i>没有进行中的工作流</i>},
                     {
-                        title: 'Schedule',
+                        title: '规划',
                         value: (
                             <>
                                 <code>{spec.schedule}</code> <PrettySchedule schedule={spec.schedule} />
                             </>
                         )
                     },
-                    {title: 'Last Scheduled Time', value: <Timestamp date={status.lastScheduledTime} />},
-                    {title: 'Conditions', value: <ConditionsPanel conditions={status.conditions} />}
+                    {title: '上次规划时间', value: <Timestamp date={status.lastScheduledTime} />},
+                    {title: '状况', value: <ConditionsPanel conditions={status.conditions} />}
                 ].map(attr => (
                     <div className='row white-box__details-row' key={attr.title}>
                         <div className='columns small-3'>{attr.title}</div>

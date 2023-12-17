@@ -15,7 +15,7 @@ import {WarningIcon} from '../../shared/components/fa-icons';
 export function PrettySchedule({schedule}: {schedule: string}) {
     try {
         if (schedule.split(' ').length >= 6) {
-            throw new Error('cron schedules must consist of 5 values only');
+            throw new Error('cron 计划必须仅包含 5 个值');
         }
         const pretty = x.toString(schedule);
         return <span title={pretty}>{pretty}</span>;

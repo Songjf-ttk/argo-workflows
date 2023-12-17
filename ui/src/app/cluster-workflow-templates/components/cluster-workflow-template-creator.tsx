@@ -24,7 +24,7 @@ export function ClusterWorkflowTemplateCreator({onCreate}: {onCreate: (workflow:
                             .then(onCreate)
                             .catch(setError);
                     }}>
-                    Create
+                    创建
                 </Button>
             </div>
             <ErrorNotice error={error} />

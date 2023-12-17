@@ -39,7 +39,7 @@ export function WorkflowTemplateFilters({templates, namespace, namePattern, labe
         <div className='wf-filters-container'>
             <div className='row'>
                 <div className='columns small-2 xlarge-12'>
-                    <p className='wf-filters-container__title'>Namespace</p>
+                    <p className='wf-filters-container__title'>命名空间</p>
                     <NamespaceFilter
                         value={namespace}
                         onChange={ns => {
@@ -48,7 +48,7 @@ export function WorkflowTemplateFilters({templates, namespace, namePattern, labe
                     />
                 </div>
                 <div className='columns small-2 xlarge-12'>
-                    <p className='wf-filters-container__title'>Labels</p>
+                    <p className='wf-filters-container__title'>标签</p>
                     <TagsInput
                         placeholder=''
                         autocomplete={labelSuggestion}
@@ -59,7 +59,7 @@ export function WorkflowTemplateFilters({templates, namespace, namePattern, labe
                     />
                 </div>
                 <div className='columns small-2 xlarge-12'>
-                    <p className='wf-filters-container__title'>Name Pattern</p>
+                    <p className='wf-filters-container__title'>名称模式</p>
                     <InputFilter
                         value={namePattern}
                         name='wfnamePattern'

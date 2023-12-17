@@ -25,7 +25,7 @@ export function CronWorkflowCreator({onCreate, namespace}: {namespace: string; o
                             .then(onCreate)
                             .catch(setError);
                     }}>
-                    Create
+                    创建
                 </Button>
             </div>
             <ErrorNotice error={error} />

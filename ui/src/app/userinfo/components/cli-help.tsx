@@ -32,10 +32,10 @@ argo list`;
     return (
         <>
             <Notice>
-                <h4>Using Your Login With The CLI</h4>
-                <p>Download the latest CLI before you start.</p>
+                <h4>使用 CLI 登录</h4>
+                <p>开始之前下载最新的 CLI。</p>
                 <div style={{fontFamily: 'monospace', whiteSpace: 'pre', margin: 20}}>{argoToken ? text.replace(argoToken, '[REDACTED]') : text}</div>
-                <p>For help with options such as ARGO_INSECURE_SKIP_VERIFY, ARGO_NAMESPACE and ARGO_INSTANCEID, run: `argo --help`.</p>
+                <p></p>
                 <div>
                     <button
                         className='argo-button argo-button--base-o'
@@ -49,11 +49,11 @@ argo list`;
                         }}>
                         {copied ? (
                             <>
-                                <i className='fa fa-check' /> Copied to clipboard
+                                <i className='fa fa-check' /> 已复制到剪贴板
                             </>
                         ) : (
                             <>
-                                <i className='fa fa-copy' /> Copy to clipboard
+                                <i className='fa fa-copy' /> 复制到剪切板
                             </>
                         )}
                     </button>

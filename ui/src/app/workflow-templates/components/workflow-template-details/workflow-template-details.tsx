@@ -99,7 +99,7 @@ export function WorkflowTemplateDetails({history, location, match}: RouteCompone
                             title: '删除',
                             iconClassName: 'fa fa-trash',
                             action: () => {
-                                popup.confirm('confirm', '你确定你想删除这个工作流模板吗?').then(yes => {
+                                popup.confirm('确认', '你确定你想删除这个工作流模板吗?').then(yes => {
                                     if (yes) {
                                         services.workflowTemplate
                                             .delete(name, namespace)
