@@ -31,7 +31,7 @@ export function WorkflowArtifacts(props: Props) {
         return (
             <div className='white-box'>
                 <div className='row'>
-                    <div className='columns small-12 text-center'>No data to display</div>
+                    <div className='columns small-12 text-center'>无数据可显示</div>
                 </div>
             </div>
         );

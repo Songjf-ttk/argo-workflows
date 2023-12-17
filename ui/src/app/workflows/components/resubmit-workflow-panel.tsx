@@ -42,14 +42,14 @@ export function ResubmitWorkflowPanel(props: Props) {
 
     return (
         <>
-            <h4>Resubmit Workflow</h4>
+            <h4>重新提交工作流程</h4>
             <h5>
                 {props.workflow.metadata.namespace}/{props.workflow.metadata.name}
             </h5>
             {error && <ErrorNotice error={error} />}
             <div className='white-box'>
                 <div key='override-parameters' style={{marginBottom: 25}}>
-                    <label>Override Parameters</label>
+                    <label>覆盖参数</label>
                     <div className='columns small-9'>
                         <Checkbox checked={overrideParameters} onChange={setOverrideParameters} />
                     </div>
@@ -57,19 +57,19 @@ export function ResubmitWorkflowPanel(props: Props) {
 
                 {overrideParameters && (
                     <div key='parameters' style={{marginBottom: 25}}>
-                        <label>Parameters</label>
+                        <label>参数</label>
                         {workflowParameters.length > 0 && <ParametersInput parameters={workflowParameters} onChange={setWorkflowParameters} />}
                         {workflowParameters.length === 0 && (
                             <>
                                 <br />
-                                <label>No parameters</label>
+                                <label>没有参数</label>
                             </>
                         )}
                     </div>
                 )}
 
                 <div key='memoized' style={{marginBottom: 25}}>
-                    <label>Memoized</label>
+                    <label>已记忆</label>
                     <div className='columns small-9'>
                         <Checkbox checked={memoized} onChange={setMemoized} />
                     </div>
@@ -78,7 +78,7 @@ export function ResubmitWorkflowPanel(props: Props) {
                 {overrideParameters && memoized && (
                     <div key='warning-override-with-memoized'>
                         <i className='fa fa-exclamation-triangle' style={{color: '#f4c030'}} />
-                        Overriding parameters on memoized submitted workflows may have unexpected results.
+                        覆盖已记忆的已提交工作流上的参数可能会产生意外的结果。
                     </div>
                 )}
 

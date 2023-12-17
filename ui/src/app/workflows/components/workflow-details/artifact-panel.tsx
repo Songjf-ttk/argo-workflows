@@ -66,8 +66,8 @@ export function ArtifactPanel({
             <FirstTimeUserPanel
                 id='ArtifactPanel'
                 explanation={
-                    'This panel shows your workflow artifacts. This will work for any artifact that the argo-server can access. ' +
-                    'That typically means you used access/key to connect to the repository, rather than annotations like eks.amazonaws.com/role-arn.'
+                    '此面板显示您的工作流工件。这将适用于所有可以访问的任何工件。 ' +
+                    '这通常意味着您使用访问权限/密钥连接到存储库。'
                 }>
                 <ErrorBoundary>
                     <div className='white-box'>
@@ -118,7 +118,6 @@ export function ArtifactPanel({
                                 </LinkButton>
                             </p>
                         )}
-                        <GiveFeedbackLink href='https://github.com/argoproj/argo-workflows/issues/7743' />
                     </div>
                 </ErrorBoundary>
             </FirstTimeUserPanel>

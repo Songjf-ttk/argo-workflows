@@ -85,16 +85,16 @@ export function WorkflowTemplateList({match, location, history}: RouteComponentP
 
     return (
         <Page
-            title='Workflow Templates'
+            title='工作流模板'
             toolbar={{
                 breadcrumbs: [
-                    {title: 'Workflow Templates', path: uiUrl('workflow-templates')},
+                    {title: '工作流模板', path: uiUrl('workflow-templates')},
                     {title: namespace, path: uiUrl('workflow-templates/' + namespace)}
                 ],
                 actionMenu: {
                     items: [
                         {
-                            title: 'Create New Workflow Template',
+                            title: '创建新的工作流模板',
                             iconClassName: 'fa fa-plus',
                             action: () => setSidePanel(true)
                         }

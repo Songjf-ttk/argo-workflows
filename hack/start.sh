@@ -1,4 +1,5 @@
 minikube start --force // 1
+
 make manifests/install.yaml
 kubectl create namespace argo // 2
 kubectl apply -n argo -f manifests/install.yaml // 3
@@ -16,3 +17,4 @@ kubectl patch deployment \
 ]}]'
 kubectl -n argo port-forward deployment/argo-server 2746:2746 // 4
 make argocli-image
+make dist/argo

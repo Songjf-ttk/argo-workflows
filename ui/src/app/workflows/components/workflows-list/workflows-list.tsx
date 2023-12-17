@@ -161,16 +161,16 @@ export function WorkflowsList({match, location, history}: RouteComponentProps<an
 
     return (
         <Page
-            title='Workflows'
+            title='工作流'
             toolbar={{
                 breadcrumbs: [
-                    {title: 'Workflows', path: uiUrl('workflows')},
+                    {title: '工作流', path: uiUrl('workflows')},
                     {title: namespace, path: uiUrl('workflows/' + namespace)}
                 ],
                 actionMenu: {
                     items: [
                         {
-                            title: 'Submit New Workflow',
+                            title: '提交新的工作流',
                             iconClassName: 'fa fa-plus',
                             action: () => navigation.goto('.', {sidePanel: 'submit-new-workflow'})
                         },
@@ -229,7 +229,7 @@ export function WorkflowsList({match, location, history}: RouteComponentProps<an
                         <>
                             {(counts.complete > 100 || counts.incomplete > 100) && (
                                 <CostOptimisationNudge name='workflow-list'>
-                                    You have at least {counts.incomplete} incomplete and {counts.complete} complete workflows. Reducing these amounts will reduce your costs.
+                                    你有至少 {counts.incomplete} 未完成和 {counts.complete} 已完成的工作流. 减少数量将降低消耗。
                                 </CostOptimisationNudge>
                             )}
                             <div className='argo-table-list'>
@@ -253,15 +253,15 @@ export function WorkflowsList({match, location, history}: RouteComponentProps<an
                                         />
                                     </div>
                                     <div className='row small-11'>
-                                        <div className='columns small-2'>NAME</div>
-                                        <div className='columns small-1'>NAMESPACE</div>
-                                        <div className='columns small-1'>STARTED</div>
-                                        <div className='columns small-1'>FINISHED</div>
-                                        <div className='columns small-1'>DURATION</div>
-                                        <div className='columns small-1'>PROGRESS</div>
-                                        <div className='columns small-2'>MESSAGE</div>
-                                        <div className='columns small-1'>DETAILS</div>
-                                        <div className='columns small-1'>ARCHIVED</div>
+                                        <div className='columns small-2'>名称</div>
+                                        <div className='columns small-1'>命名空间</div>
+                                        <div className='columns small-1'>已开始</div>
+                                        <div className='columns small-1'>已完成</div>
+                                        <div className='columns small-1'>持续</div>
+                                        <div className='columns small-1'>进程</div>
+                                        <div className='columns small-2'>小心</div>
+                                        <div className='columns small-1'>详情</div>
+                                        <div className='columns small-1'>存档</div>
                                         {(columns || []).map(col => {
                                             return (
                                                 <div className='columns small-1' key={col.key}>
@@ -332,7 +332,7 @@ function nullSafeTimeFilter(createdAfter: Date, finishedBefore: Date, w: Workflo
     const finishedDate: Date = new Date(finishedAt);
 
     // check for undefined date filters as well
-    // equivalent to back-end logic: https://github.com/argoproj/argo-workflows/blob/f5e31f8f36b32883087f783cb1227490bbe36bbd/pkg/apis/workflow/v1alpha1/workflow_types.go#L222
+
     if (createdAfter && finishedBefore) {
         return createdDate > createdAfter && finishedAt && finishedDate < finishedBefore;
     } else if (createdAfter && !finishedBefore) {

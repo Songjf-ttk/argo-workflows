@@ -91,25 +91,25 @@ export function EventsPanel({namespace, name, kind}: {namespace: string; name: s
         <>
             <div style={{margin: 20}}>
                 <ToggleButton toggled={showAll} onToggle={() => setShowAll(!showAll)} title='Show all events in the namespace'>
-                    Show All
+                    展示全部
                 </ToggleButton>
                 <ToggleButton toggled={hideNormal} onToggle={() => setHideNormal(!hideNormal)} title='Hide normal events'>
-                    Hide normal
+                隐藏正常
                 </ToggleButton>
             </div>
             <ErrorNotice error={error} />
             {!events || events.length === 0 ? (
                 <Notice>
-                    <i className='fa fa-spin fa-circle-notch' /> Waiting for events. Still waiting for data? Try changing the filters.
+                    <i className='fa fa-spin fa-circle-notch' /> 等待事件中。还在等待数据吗？可以尝试更换过滤器。
                 </Notice>
             ) : (
                 <div ref={tableRef} className='argo-table-list'>
                     <div className='row argo-table-list__head'>
-                        <div className='columns small-1'>Type</div>
-                        <div className='columns small-2'>Last Seen</div>
-                        <div className='columns small-2'>Reason</div>
-                        <div className='columns small-2'>Object</div>
-                        <div className='columns small-5'>Message</div>
+                        <div className='columns small-1'>类型</div>
+                        <div className='columns small-2'>上次查看时间</div>
+                        <div className='columns small-2'>原因</div>
+                        <div className='columns small-2'>对象</div>
+                        <div className='columns small-5'>消息</div>
                     </div>
                     {events
                         .filter(e => e && e.lastTimestamp)
