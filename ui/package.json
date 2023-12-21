@@ -16,7 +16,7 @@
         "node": ">=20"
     },
     "dependencies": {
-        "argo-ui": "git+https://github.com/kubeTasker/argo-ui.git#e945a4f266a61dc212d1ee37ff6a2cc541d5363d",
+        "argo-ui": "git+https://github.com/kubeTasker/argo-ui.git#5d0df81416498a7a3e0c1a4d65281f259f0f3d56",
         "chart.js": "^2.9.4",
         "chartjs-plugin-annotation": "^0.5.7",
         "classnames": "^2.3.2",

@@ -86,7 +86,7 @@ export function AppRouter({popupManager, history, notificationsManager}: {popupM
                 <Switch>
                     <Route path={uiUrl('widgets')} component={Widgets} />
                     <Layout
-                       navBarStyle={{backgroundColor: navBarBackgroundColor, display: 'none'}}
+                       navBarStyle={{backgroundColor: navBarBackgroundColor}}
                         navItems={[
                             {
                                 title: '工作流',

@@ -2658,9 +2658,9 @@ arg@^4.1.0:
   resolved "https://registry.yarnpkg.com/arg/-/arg-4.1.3.tgz#269fc7ad5b8e42cb63c896d5666017261c144089"
   integrity sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==
 
-"argo-ui@git+https://github.com/kubeTasker/argo-ui.git#e945a4f266a61dc212d1ee37ff6a2cc541d5363d":
+"argo-ui@git+https://github.com/kubeTasker/argo-ui.git#5d0df81416498a7a3e0c1a4d65281f259f0f3d56":
   version "1.0.0"
-  resolved "git+https://github.com/kubeTasker/argo-ui.git#e945a4f266a61dc212d1ee37ff6a2cc541d5363d"
+  resolved "git+https://github.com/kubeTasker/argo-ui.git#5d0df81416498a7a3e0c1a4d65281f259f0f3d56"
   dependencies:
     "@fortawesome/fontawesome-free" "^6.2.1"
     "@tippy.js/react" "^3.1.1"
