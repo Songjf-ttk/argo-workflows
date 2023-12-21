@@ -1,8 +1,9 @@
 {
     "compilerOptions": {
+        "strict": false,
         "outDir": "./../../dist/app",
         "sourceMap": true,
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "module": "ES2020", // must be ES2020+ for dynamic imports: https://github.com/Microsoft/TypeScript/issues/16675, https://github.com/webpack/webpack/issues/5703#issuecomment-357512412
         "moduleResolution": "node",
         "esModuleInterop": true,

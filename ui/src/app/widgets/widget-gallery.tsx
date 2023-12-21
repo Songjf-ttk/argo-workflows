@@ -23,7 +23,7 @@ export const WidgetGallery = ({namespace, name, label}: {namespace: string; name
                 height: 20
             },
             {
-                title: 'Graph',
+                title: '段落',
                 description: `A graph of the workflow that automatically updates when nodes change state.`,
                 path: `widgets/workflow-graphs/${namespace}?${name && 'name=' + name}&${label && 'label=' + label}`,
                 parameters: [

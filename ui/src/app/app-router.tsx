@@ -81,12 +81,12 @@ export function AppRouter({popupManager, history, notificationsManager}: {popupM
     const namespaceSuffix = Utils.managedNamespace ? '' : '/' + namespace;
     return (
         <>
-            {popupProps && <Popup {...popupProps} />}
+            {/* {popupProps && <Popup {...popupProps} />} */}
             <Router history={history}>
                 <Switch>
                     <Route path={uiUrl('widgets')} component={Widgets} />
                     <Layout
-                        navBarStyle={{backgroundColor: navBarBackgroundColor}}
+                       navBarStyle={{backgroundColor: navBarBackgroundColor}}
                         navItems={[
                             {
                                 title: '工作流',
