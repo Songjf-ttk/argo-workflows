@@ -8,8 +8,8 @@ const randomSillyName = () => {
 };
 
 // cannot be called `arguments` due to typescript
-const argumentz = {parameters: [{name: 'message', value: 'hello argo'}]};
-const entrypoint = 'argosay';
+const argumentz = {parameters: [{name: 'message', value: 'hello kubetasker'}]};
+const entrypoint = 'kubetaskersay';
 const labels = {example: 'true'};
 const ttlStrategy = {secondsAfterCompletion: 5 * 60};
 const podGC = {strategy: 'OnPodCompletion'};
@@ -21,9 +21,9 @@ const exampleTemplate = (name: string): Template => ({
     },
     container: {
         name: 'main',
-        image: 'argoproj/argosay:v2',
-        command: ['/argosay'],
-        args: ['echo', '{{inputs.parameters.message}}']
+        image: 'docker/whalesay',
+        command: ['cowsay'],
+        args: ['{{inputs.parameters.message}}']
     }
 });
 
