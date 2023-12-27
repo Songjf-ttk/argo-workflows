@@ -124,7 +124,6 @@ export function AppRouter({popupManager, history, notificationsManager}: {popupM
                                 {namespace && <Redirect to={workflowsUrl + '/' + namespace} />}
                             </Switch>
                         </ErrorBoundary>
-                        <ChatButton />
                         {/* {version && modals && <ModalSwitch version={version.version} modals={modals} />} */}
                     </Layout>
                 </Switch>

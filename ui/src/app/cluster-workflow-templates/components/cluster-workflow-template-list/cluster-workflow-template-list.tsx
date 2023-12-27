@@ -57,13 +57,12 @@ export function ClusterWorkflowTemplateList({history, location}: RouteComponentP
         if (!templates) {
             return <Loading />;
         }
-        const learnMore = <a href='https://github.com/kubeTasker/kubeTasker'>了解更多</a>;
         if (templates.length === 0) {
             return (
                 <ZeroState title='没有集群工作流模板'>
                     <p>可以在这里创建新的工作流模板</p>
                     <p>
-                        <ExampleManifests />. {learnMore}.
+                        <ExampleManifests />.
                     </p>
                 </ZeroState>
             );
@@ -89,7 +88,7 @@ export function ClusterWorkflowTemplateList({history, location}: RouteComponentP
                     ))}
                 </div>
                 <Footnote>
-                    <InfoIcon /> 集群范围的工作流模板是可重用的模板，你可以从中创建新的工作流。<ExampleManifests />. {learnMore}.
+                    <InfoIcon /> 集群范围的工作流模板是可重用的模板，你可以从中创建新的工作流。<ExampleManifests />.
                 </Footnote>
             </>
         );
