@@ -54,12 +54,6 @@ export function RetryWorkflowPanel(props: Props) {
             {error && <ErrorNotice error={error} />}
             <div className='white-box'>
                 {/* Override Parameters */}
-                <div key='override-parameters' style={{marginBottom: 25}}>
-                    <label>覆盖参数</label>
-                    <div className='columns small-9'>
-                        <Checkbox checked={overrideParameters} onChange={setOverrideParameters} />
-                    </div>
-                </div>
 
                 {overrideParameters && (
                     <div key='parameters' style={{marginBottom: 25}}>

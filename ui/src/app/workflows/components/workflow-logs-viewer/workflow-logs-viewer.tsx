@@ -291,8 +291,7 @@ export function WorkflowLogsViewer({workflow, nodeId, initialPodName, container,
                 )}
                 {podName && podNamesToNodeIDs.get(podName) && (
                     <>
-                        仍在等待数据或者出现了一个错误？尝试{' '}
-                        <a href={services.workflows.getArtifactLogsPath(workflow, podNamesToNodeIDs.get(podName), selectedContainer, archived)}>logs from the artifacts</a>.
+                        仍在等待数据或者出现了一个错误？
                     </>
                 )}
                 {execSpec(workflow).podGC && (

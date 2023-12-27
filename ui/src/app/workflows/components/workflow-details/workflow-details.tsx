@@ -510,16 +510,6 @@ export function WorkflowDetails({history, location, match}: RouteComponentProps<
                 },
                 tools: (
                     <div className='workflow-details__topbar-buttons'>
-                        <a className={classNames({active: tab === '总结'})} onClick={() => setTab('summary')}>
-                            <i className='fa fa-columns' />
-                            {workflow && workflow.status.conditions && hasWarningConditionBadge(workflow.status.conditions) && <span className='badge' />}
-                        </a>
-                        <a className={classNames({active: tab === '事项'})} onClick={() => setTab('events')}>
-                            <i className='fa argo-icon-notification' />
-                        </a>
-                        <a className={classNames({active: tab === '时间线'})} onClick={() => setTab('timeline')}>
-                            <i className='fa argo-icon-timeline' />
-                        </a>
                         <a className={classNames({active: tab === '工作流'})} onClick={() => setTab('workflow')}>
                             <i className='fa argo-icon-workflow' />
                         </a>

@@ -48,12 +48,6 @@ export function ResubmitWorkflowPanel(props: Props) {
             </h5>
             {error && <ErrorNotice error={error} />}
             <div className='white-box'>
-                <div key='override-parameters' style={{marginBottom: 25}}>
-                    <label>覆盖参数</label>
-                    <div className='columns small-9'>
-                        <Checkbox checked={overrideParameters} onChange={setOverrideParameters} />
-                    </div>
-                </div>
 
                 {overrideParameters && (
                     <div key='parameters' style={{marginBottom: 25}}>
@@ -67,13 +61,6 @@ export function ResubmitWorkflowPanel(props: Props) {
                         )}
                     </div>
                 )}
-
-                <div key='memoized' style={{marginBottom: 25}}>
-                    <label>已记忆</label>
-                    <div className='columns small-9'>
-                        <Checkbox checked={memoized} onChange={setMemoized} />
-                    </div>
-                </div>
 
                 {overrideParameters && memoized && (
                     <div key='warning-override-with-memoized'>
