@@ -39,15 +39,6 @@ export function WorkflowTemplateFilters({templates, namespace, namePattern, labe
         <div className='wf-filters-container'>
             <div className='row'>
                 <div className='columns small-2 xlarge-12'>
-                    <p className='wf-filters-container__title'>命名空间</p>
-                    <NamespaceFilter
-                        value={namespace}
-                        onChange={ns => {
-                            onChange(ns, namePattern, labels);
-                        }}
-                    />
-                </div>
-                <div className='columns small-2 xlarge-12'>
                     <p className='wf-filters-container__title'>标签</p>
                     <TagsInput
                         placeholder=''
