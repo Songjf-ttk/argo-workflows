@@ -7,7 +7,7 @@ export type OperationDisabled = {
     [action in WorkflowOperationName]: boolean;
 };
 
-export type WorkflowOperationName = '重试' | '重新提交' | '暂停' | '恢复' | '停止' | '终止' | '删除';
+export type WorkflowOperationName = '重试' | '重新提交' | '恢复' | '删除';
 
 export interface WorkflowOperation {
     title: WorkflowOperationName;
@@ -38,29 +38,11 @@ export const WorkflowOperationsMap: WorkflowOperations = {
         disabled: () => false,
         action: (wf: Workflow) => services.workflows.resubmit(wf.metadata.name, wf.metadata.namespace, null)
     },
-    SUSPEND: {
-        title: '暂停',
-        iconClassName: 'fa fa-pause',
-        disabled: (wf: Workflow) => !Utils.isWorkflowRunning(wf) || Utils.isWorkflowSuspended(wf),
-        action: (wf: Workflow) => services.workflows.suspend(wf.metadata.name, wf.metadata.namespace)
-    },
     RESUME: {
         title: '恢复',
         iconClassName: 'fa fa-play',
         disabled: (wf: Workflow) => !Utils.isWorkflowSuspended(wf),
         action: (wf: Workflow) => services.workflows.resume(wf.metadata.name, wf.metadata.namespace, null)
-    },
-    STOP: {
-        title: '停止',
-        iconClassName: 'fa fa-stop-circle',
-        disabled: (wf: Workflow) => !Utils.isWorkflowRunning(wf),
-        action: (wf: Workflow) => services.workflows.stop(wf.metadata.name, wf.metadata.namespace)
-    },
-    TERMINATE: {
-        title: '终止',
-        iconClassName: 'fa fa-times-circle',
-        disabled: (wf: Workflow) => !Utils.isWorkflowRunning(wf),
-        action: (wf: Workflow) => services.workflows.terminate(wf.metadata.name, wf.metadata.namespace)
     },
     DELETE: {
         title: '删除',
