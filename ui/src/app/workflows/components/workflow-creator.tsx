@@ -67,16 +67,6 @@ export function WorkflowCreator({namespace, onCreate}: {namespace: string; onCre
             {stage === 'choose-method' && (
                 <div className='white-box'>
                     <h4>提交新的工作流</h4>
-                    <p>同时:</p>
-                    <div style={{margin: 10, marginLeft: 20}}>
-                        <Select
-                            placeholder='选择一个工作流模板...'
-                            options={workflowTemplates && workflowTemplates.length > 0 ? workflowTemplates.map(tmpl => tmpl.metadata.name) : []}
-                            value={workflowTemplate && workflowTemplate.metadata.name}
-                            onChange={templateName => setWorkflowTemplate((workflowTemplates || []).find(template => template.metadata.name === templateName.title))}
-                        />
-                    </div>
-                    <p>或者:</p>
                     <div style={{margin: 10, marginLeft: 20}}>
                         <a onClick={() => setStage('full-editor')}>
                         使用完整的工作流选项进行编辑 <i className='fa fa-caret-right' />

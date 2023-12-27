@@ -117,7 +117,7 @@ export const Utils = {
     },
 
     getUserNamespace() {
-        return this.userNamespace || this.managedNamespace || 'default';
+        return this.userNamespace;
     },
 
     // return a namespace, never return null/undefined, defaults to "default"

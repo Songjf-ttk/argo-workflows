@@ -64,16 +64,6 @@ export function WorkflowFilters(props: WorkflowFilterProps) {
                     <p className='wf-filters-container__title'>标签</p>
                     <TagsInput placeholder='' autocomplete={labelSuggestion} tags={props.labels} onChange={props.setLabels} />
                 </div>
-                <div className='columns small-2 xlarge-12'>
-                    <p className='wf-filters-container__title'>工作流模板</p>
-                    <DataLoaderDropdown
-                        load={async () => {
-                            const list = await services.workflowTemplate.list(props.namespace, []);
-                            return (list.items || []).map(x => x.metadata.name);
-                        }}
-                        onChange={setWorkflowTemplate}
-                    />
-                </div>
                 <div className='columns small-5 xlarge-12'>
                     <p className='wf-filters-container__title'>创建自</p>
                     <div className='wf-filters-container__content'>

@@ -22,8 +22,8 @@ const exampleTemplate = (name: string): Template => ({
     container: {
         name: 'main',
         image: 'docker/whalesay',
-        command: ['cowsay'],
-        args: ['{{inputs.parameters.message}}']
+        command: '[cowsay]',
+        args: '[{{inputs.parameters.message}}]'
     }
 });
 
