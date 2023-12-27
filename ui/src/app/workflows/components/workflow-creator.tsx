@@ -96,7 +96,7 @@ export function WorkflowCreator({namespace, onCreate}: {namespace: string; onCre
                         <Button
                             icon='plus'
                             onClick={() => {
-                                console.log("workflow create:"+workflow.metadata.namespace);
+                                console.log("workflow create:" + Utils.getUserNamespace());
                                 services.workflows
                                     .create(workflow, Utils.getNamespaceWithDefault(workflow.metadata.namespace))
                                     .then(onCreate)
