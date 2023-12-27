@@ -36,7 +36,7 @@ export function WorkflowCreator({namespace, onCreate}: {namespace: string; onCre
                     setWorkflow({
                         metadata: {
                             generateName: workflowTemplate.metadata.name + '-',
-                            namespace: Utils.getUserNamespace(),
+                            namespace: Utils.getCurrentNamespace(),
                             labels: {
                                 'workflows.argoproj.io/workflow-template': workflowTemplate.metadata.name,
                                 'submit-from-ui': 'true'
@@ -96,7 +96,7 @@ export function WorkflowCreator({namespace, onCreate}: {namespace: string; onCre
                         <Button
                             icon='plus'
                             onClick={() => {
-                                console.log("workflow create:" + Utils.getUserNamespace());
+                                console.log("workflow create:" + Utils.getCurrentNamespace());
                                 services.workflows
                                     .create(workflow, Utils.getNamespaceWithDefault(workflow.metadata.namespace))
                                     .then(onCreate)

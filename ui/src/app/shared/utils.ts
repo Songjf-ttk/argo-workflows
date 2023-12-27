@@ -120,6 +120,10 @@ export const Utils = {
         return this.userNamespace;
     },
 
+    getCurrentNamespace() {
+        return this.currentNamespace;
+    },
+
     // return a namespace, never return null/undefined, defaults to "default"
     getNamespaceWithDefault(namespace: string) {
         return namespace || this.currentNamespace || this.userNamespace || this.managedNamespace || 'default';
