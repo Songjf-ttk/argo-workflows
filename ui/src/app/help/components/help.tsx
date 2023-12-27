@@ -15,7 +15,7 @@ export function Help() {
                     <div className='help-box'>
                         <div className='help-box__ico help-box__ico--manual' />
                         <h3>Documentation</h3>
-                        <a href='https://argoproj.github.io/argo-workflows' target='_blank' className='help-box__link' rel='noreferrer'>
+                        <a href='https://github.com/kubeTasker' target='_blank' className='help-box__link' rel='noreferrer'>
                             Online Help
                         </a>
                         <a className='help-box__link' target='_blank' href={uiUrl('apidocs')} rel='noreferrer'>
@@ -27,7 +27,7 @@ export function Help() {
                     <div className='help-box'>
                         <div className='help-box__ico help-box__ico--email' />
                         <h3>Contact</h3>
-                        <a className='help-box__link' target='_blank' href='https://argoproj.github.io/community/join-slack/' rel='noreferrer'>
+                        <a className='help-box__link' target='_blank' href='https://github.com/kubeTasker' rel='noreferrer'>
                             Slack
                         </a>
                     </div>
@@ -36,7 +36,7 @@ export function Help() {
                     <div className='help-box'>
                         <div className='help-box__ico help-box__ico--download' />
                         <h3>Argo CLI</h3>
-                        <a className='help-box__link' target='_blank' href='https://github.com/argoproj/argo-workflows/releases/latest' rel='noreferrer'>
+                        <a className='help-box__link' target='_blank' href='https://github.com/kubeTasker' rel='noreferrer'>
                             Releases
                         </a>
                     </div>

@@ -26,7 +26,7 @@ import {WorkflowTemplateFilters} from '../workflow-template-filters/workflow-tem
 
 import './workflow-template-list.scss';
 
-const learnMore = <a href='https://argoproj.github.io/argo-workflows/workflow-templates/'>1</a>;
+const learnMore = <a href='https://github.com/kubeTasker'>1</a>;
 
 export function WorkflowTemplateList({match, location, history}: RouteComponentProps<any>) {
     // boiler-plate

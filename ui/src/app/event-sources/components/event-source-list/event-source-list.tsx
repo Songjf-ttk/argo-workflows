@@ -24,7 +24,7 @@ import {EventsPanel} from '../../../workflows/components/events-panel';
 import {EventSourceCreator} from '../event-source-creator';
 import {EventSourceLogsViewer} from '../event-source-log-viewer';
 
-const learnMore = <a href='https://argoproj.github.io/argo-events/concepts/event_source/'>Learn more</a>;
+const learnMore = <a href='https://github.com/kubeTasker'>Learn more</a>;
 
 export function EventSourceList({match, location, history}: RouteComponentProps<any>) {
     // boiler-plate

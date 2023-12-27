@@ -12,7 +12,7 @@ export function ResourcesDuration(props: Props) {
                 Object.entries(props.resourcesDuration)
                     .map(([resource, duration]) => formatDuration(duration, 1) + '*(' + denominator(resource) + ' ' + resource + ')')
                     .join(',')}{' '}
-            <a href='https://argoproj.github.io/argo-workflows/resource-duration/'>
+            <a href='https://github.com/kubeTasker'>
                 <i className='fa fa-info-circle' />
             </a>
         </>
