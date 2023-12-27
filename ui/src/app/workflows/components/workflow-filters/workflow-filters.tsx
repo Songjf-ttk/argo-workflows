@@ -74,10 +74,6 @@ export function WorkflowFilters(props: WorkflowFilterProps) {
                         onChange={setWorkflowTemplate}
                     />
                 </div>
-                <div className='columns small-4 xlarge-12'>
-                    <p className='wf-filters-container__title'>阶段</p>
-                    <CheckboxFilter selected={props.phases} onChange={props.setPhases} items={phaseItems} type='phase' />
-                </div>
                 <div className='columns small-5 xlarge-12'>
                     <p className='wf-filters-container__title'>创建自</p>
                     <div className='wf-filters-container__content'>
