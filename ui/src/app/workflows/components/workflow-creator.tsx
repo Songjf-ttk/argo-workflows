@@ -36,7 +36,7 @@ export function WorkflowCreator({namespace, onCreate}: {namespace: string; onCre
                     setWorkflow({
                         metadata: {
                             generateName: workflowTemplate.metadata.name + '-',
-                            namespace,
+                            namespace: Utils.getNamespaceWithDefault(namespace),
                             labels: {
                                 'workflows.argoproj.io/workflow-template': workflowTemplate.metadata.name,
                                 'submit-from-ui': 'true'
