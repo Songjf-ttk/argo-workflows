@@ -30,9 +30,6 @@ export function WorkflowTemplateCreator({namespace, onCreate}: {namespace: strin
             </div>
             <ErrorNotice error={error} />
             <WorkflowTemplateEditor template={template} onChange={setTemplate} onError={setError} />
-            <p>
-                <ExampleManifests />.
-            </p>
         </>
     );
 }

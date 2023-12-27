@@ -125,9 +125,6 @@ export function WorkflowTemplateList({match, location, history}: RouteComponentP
                     ) : templates.length === 0 ? (
                         <ZeroState title='No workflow templates'>
                             <p>你可以创建新的工作流</p>
-                            <p>
-                                <ExampleManifests />.
-                            </p>
                         </ZeroState>
                     ) : (
                         <>
