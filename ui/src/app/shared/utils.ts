@@ -1,6 +1,6 @@
 import * as models from '../../models';
-import {NODE_PHASE, Parameter} from '../../models';
-import {Pagination} from './pagination';
+import { NODE_PHASE, Parameter } from '../../models';
+import { Pagination } from './pagination';
 
 const managedNamespaceKey = 'managedNamespace';
 const userNamespaceKey = 'userNamespace';
@@ -30,7 +30,7 @@ export const Utils = {
         return classes.join(' ');
     },
 
-    shortNodeName(node: {name: string; displayName: string}): string {
+    shortNodeName(node: { name: string; displayName: string }): string {
         return node.displayName || node.name;
     },
 
@@ -114,6 +114,10 @@ export const Utils = {
     // return a namespace, favoring managed namespace when set
     getNamespace(namespace: string) {
         return this.managedNamespace || namespace;
+    },
+
+    getUserNamespace() {
+        return this.userNamespace || this.managedNamespace || 'default';
     },
 
     // return a namespace, never return null/undefined, defaults to "default"
