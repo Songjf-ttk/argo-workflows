@@ -19,12 +19,6 @@ export const MetadataEditor = ({onChange, value}: {value: kubernetes.ObjectMeta;
                         <TextInput onChange={generateName => onChange({...value, generateName})} value={value.generateName} readOnly={!!value.creationTimestamp} />
                     </div>
                 </div>
-                <div className='row white-box__details-row'>
-                    <div className='columns small-4'>命名空间</div>
-                    <div className='columns small-4'>
-                        <TextInput onChange={namespace => onChange({...value, namespace})} value={value.namespace} readOnly={!!value.creationTimestamp} />
-                    </div>
-                </div>
             </div>
             <LabelsAndAnnotationsEditor value={value} onChange={onChange} />
         </>
