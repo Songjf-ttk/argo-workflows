@@ -164,7 +164,7 @@ export function WorkflowsList({match, location, history}: RouteComponentProps<an
             title='工作流'
             toolbar={{
                 breadcrumbs: [
-                    {title: '工作流', path: uiUrl('workflows')},
+                    {title: '工作流', path: uiUrl('workflows/' + namespace)},
                     {title: namespace, path: uiUrl('workflows/' + namespace)}
                 ],
                 actionMenu: {

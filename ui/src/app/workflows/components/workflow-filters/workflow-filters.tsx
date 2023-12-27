@@ -61,10 +61,6 @@ export function WorkflowFilters(props: WorkflowFilterProps) {
         <div className='wf-filters-container'>
             <div className='row'>
                 <div className='columns small-2 xlarge-12'>
-                    <p className='wf-filters-container__title'>命名空间</p>
-                    <NamespaceFilter value={props.namespace} onChange={props.setNamespace} />
-                </div>
-                <div className='columns small-2 xlarge-12'>
                     <p className='wf-filters-container__title'>标签</p>
                     <TagsInput placeholder='' autocomplete={labelSuggestion} tags={props.labels} onChange={props.setLabels} />
                 </div>
@@ -76,16 +72,6 @@ export function WorkflowFilters(props: WorkflowFilterProps) {
                             return (list.items || []).map(x => x.metadata.name);
                         }}
                         onChange={setWorkflowTemplate}
-                    />
-                </div>
-                <div className='columns small-2 xlarge-12'>
-                    <p className='wf-filters-container__title'>Cron工作流</p>
-                    <DataLoaderDropdown
-                        load={async () => {
-                            const list = await services.cronWorkflows.list(props.namespace);
-                            return list.map(x => x.metadata.name);
-                        }}
-                        onChange={setCronWorkflow}
                     />
                 </div>
                 <div className='columns small-4 xlarge-12'>
