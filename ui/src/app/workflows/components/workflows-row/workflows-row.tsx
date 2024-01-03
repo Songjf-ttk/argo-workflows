@@ -28,17 +28,6 @@ export function WorkflowsRow(props: WorkflowsRowProps) {
         <div className='workflows-list__row-container'>
             <div className='row argo-table-list__row'>
                 <div className='columns small-1 workflows-list__status'>
-                    <input
-                        type='checkbox'
-                        className='workflows-list__status--checkbox'
-                        checked={props.checked}
-                        onClick={e => {
-                            e.stopPropagation();
-                        }}
-                        onChange={() => {
-                            props.select(props.workflow);
-                        }}
-                    />
                     <PhaseIcon value={wf.status.phase} />
                 </div>
                 <Link

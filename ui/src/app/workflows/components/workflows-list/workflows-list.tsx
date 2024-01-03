@@ -232,22 +232,6 @@ export function WorkflowsList({match, location, history}: RouteComponentProps<an
                             <div className='argo-table-list'>
                                 <div className='row argo-table-list__head'>
                                     <div className='columns small-1 workflows-list__status'>
-                                        <input
-                                            type='checkbox'
-                                            className='workflows-list__status--checkbox'
-                                            checked={filteredWorkflows.length === selectedWorkflows.size}
-                                            onClick={e => {
-                                                e.stopPropagation();
-                                            }}
-                                            onChange={() => {
-                                                const newSelections = new Map<string, models.Workflow>();
-                                                // Not all workflows are selected, select them all
-                                                if (filteredWorkflows.length !== selectedWorkflows.size) {
-                                                    filteredWorkflows.forEach(wf => newSelections.set(wf.metadata.uid, wf));
-                                                }
-                                                setSelectedWorkflows(newSelections);
-                                            }}
-                                        />
                                     </div>
                                     <div className='row small-11'>
                                         <div className='columns small-2'>名称</div>
